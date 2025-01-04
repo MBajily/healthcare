@@ -1,0 +1,228 @@
+{% extends 'hospital/index.html' %}
+{% load static %}
+
+{% block style %}
+	<!-- Data Tables -->
+	<link rel="stylesheet" href="{% static '/hospital/plugin/datatables/media/css/dataTables.bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '/hospital/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div id="wrapper">
+		<div class="main-content container">
+			<div class="row small-spacing">
+				<div class="col-md-3 col-xs-12">
+					<div class="box-content bordered primary">
+						<div class="profile-avatar">
+							{% if selected_patient.photo %}
+								<img class="border" src="{% static 'media' %}/{{selected_patient.photo}}" alt="{{selected_patient.civil_status.full_name}}">
+							{% else %}
+								<img class="border" src="{% static 'media' %}/avatar.jpg" alt="">
+							{% endif %}
+							
+							<span class="btn btn-block btn-friend"><i class="fa fa-check-circle"></i> Active</span>
+							<h3><strong>{{selected_patient.civil_status.full_name}}</strong></h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="box-content">
+								<!-- /.box-title -->
+								<div class="card-content">
+									<div class="row">
+										<div class="col-md-12 mb-3">
+											<div class="col-xs-12"><strong>Nationality ID:</strong></div>
+											<!-- /.col-xs-12 -->
+											<div class="col-xs-12">{{selected_patient.civil_status.nationality_id}}</div>
+											<!-- /.col-xs-12 -->
+										</div>
+										<!-- /.col-md-12 mb-3 -->
+										<div class="col-md-12 mb-3">
+											<div class="col-xs-12"><strong>Full Name:</strong></div>
+											<!-- /.col-xs-12 -->
+											<div class="col-xs-12">{{selected_patient.civil_status.full_name}}</div>
+											<!-- /.col-xs-12 -->
+										</div>
+										<!-- /.col-md-12 mb-3 -->
+										<div class="col-md-12 mb-3">
+											<div class="col-xs-12"><strong>Email:</strong></div>
+											<!-- /.col-xs-12 -->
+											<div class="col-xs-12">{{selected_patient.user.email}}</div>
+											<!-- /.col-xs-12 -->
+										</div>
+										<!-- /.col-md-12 mb-3 -->
+										<div class="col-md-12 mb-3">
+											<div class="col-xs-12"><strong>Phone:</strong></div>
+											<!-- /.col-xs-12 -->
+											<div class="col-xs-12">{{selected_patient.phone}}</div>
+											<!-- /.col-xs-12 -->
+										</div>
+										<!-- /.col-md-12 mb-3 -->
+										<div class="col-md-12 mb-3">
+											<div class="col-xs-12"><strong>Birthday:</strong></div>
+											<!-- /.col-xs-12 -->
+											<div class="col-xs-12">{{selected_patient.civil_status.birth}}</div>
+											<!-- /.col-xs-12 -->
+										</div>
+										<!-- /.col-md-12 mb-3 -->
+										<div class="col-md-12 mb-3">
+											<div class="col-xs-12"><strong>Age:</strong></div>
+											<!-- /.col-xs-12 -->
+											<div class="col-xs-12">{{selected_patient.civil_status.age}}</div>
+											<!-- /.col-xs-12 -->
+										</div>
+										<!-- /.col-md-12 mb-3 -->
+										<div class="col-md-12 mb-3">
+											<div class="col-xs-12"><strong>Gender:</strong></div>
+											<!-- /.col-xs-12 -->
+											<div class="col-xs-12">{{selected_patient.civil_status.gender}}</div>
+											<!-- /.col-xs-12 -->
+										</div>
+										<!-- /.col-md-12 mb-3 -->
+									</div>
+									<!-- /.row -->
+								</div>
+								<!-- /.card-content -->
+							</div>
+							<!-- /.box-content card -->
+						</div>
+						<!-- /.col-md-12 -->
+					</div>
+				</div>
+				<!-- /.col-md-3 col-xs-12 -->
+				<div class="col-md-9 col-xs-12">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="box-content bordered primary">
+								<h4 class="box-title text-dark">Basic Health State</h4>
+								<div class="dropdown js__drop_down">
+									<a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+									<ul class="sub-menu">
+										<li><a href="#">History</a></li>
+									</ul>
+									<!-- /.sub-menu -->
+								</div>
+								<br>
+								<div class="col-xs-12 col-sm-6 col-lg-3">
+									<div class="box-content text-center p-2">
+										<i class="mdi mdi-heart-pulse text-primary" style="font-size: 50px;"></i>
+										<h5>Heart Rate</h5>
+										<p><strong><span class="text-success" style="font-size: 25px;">{{ recent_health_state.heart_rate }}</span> bpm</strong></p>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-lg-3">
+									<div class="box-content text-center p-2">
+										<i class="mdi mdi-face text-primary" style="font-size: 50px;"></i>
+										<h5>Oxygen Saturation</h5>
+										<p><strong><span class="text-success" style="font-size: 25px;">{{ recent_health_state.oxygen_saturation }}</span> %</strong></p>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-lg-3">
+									<div class="box-content text-center p-2">
+										<i class="mdi mdi-thermometer text-primary" style="font-size: 50px;"></i>
+										<h5>Body Temperature</h5>
+										<p><strong><span class="text-success" style="font-size: 25px;">{{ recent_health_state.body_temperature }}</span> C</strong></p>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-lg-3">
+									<div class="box-content text-center p-2">
+										<i class="mdi mdi-triangle text-primary" style="font-size: 50px;"></i>
+										<h5>Glucose Level</h5>
+										<p><strong><span class="text-success" style="font-size: 25px;">{{ recent_health_state.glucose_level }}</span> mg/dl</strong></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="box-content">
+								<h4 class="box-title">Medical History</h4>
+								<!-- /.box-title -->
+								<div class="m-2">
+									  <form method="GET">
+											{{medical_examinations_filter.form}}
+									    <button class="btn btn-primary" type="submit">Search</button>
+									  </form>
+								</div>
+								<table id="example-scroll-y" class="table table-striped table-bordered display" style="width:100%">
+									<thead>
+										<tr>
+											<th>Type</th>
+											<th>Hospital</th>
+											<th>Date</th>
+											<th>Download</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>Type</th>
+											<th>Hospital</th>
+											<th>Date</th>
+											<th>Download</th>
+										</tr>
+									</tfoot>
+									<tbody>
+										{% for record in medical_examinations %}
+										<tr>
+											<td>{{record.type}}</td>
+											<td>{{record.hospital.name}}</td>
+											<td>{{record.date}}</td>
+											<td><a href="">download</a></td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+							<!-- /.box-content -->
+						</div>
+						<!-- /.col-xs-12 -->
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="box-content">
+								<h4 class="box-title">Prescriptions</h4>
+								<div class="dropdown js__drop_down">
+									<a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+									<ul class="sub-menu">
+										<li><a href="#">History</a></li>
+									</ul>
+									<!-- /.sub-menu -->
+								</div>
+								<br>
+								{% for prescription in all_prescriptions %}
+								<div class="col-xs-12 col-sm-6 col-lg-4">
+									
+										<div class="box-content text-center p-2" style="background: #EEE;">
+											<h4>{{ prescription.type }}</h4>
+											<p>{{ prescription.name }}</p>
+											<p>duration: {{ prescription.duration }} days</p>
+											<p>{{ prescription.start_date }} - {{ prescription.end_date }}</p>
+										</div>
+									
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.col-md-9 col-xs-12 -->
+			</div>
+			<!-- /.row small-spacing -->		
+		</div>
+		<!-- /.main-content -->
+	</div><!--/#wrapper -->
+{% endblock %}
+
+{% block script %}
+	<!-- Data Tables -->
+	<script src="{% static '/hospital/plugin/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static '/hospital/plugin/datatables/media/js/dataTables.bootstrap.min.js' %}"></script>
+	<script src="{% static '/hospital/plugin/datatables/extensions/Responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static '/hospital/plugin/datatables/extensions/Responsive/js/responsive.bootstrap.min.js' %}"></script>
+	<script src="{% static '/hospital/scripts/datatables.demo.min.js' %}"></script>
+{% endblock %}

@@ -30,7 +30,7 @@ def hospital_dashboard(request):
 			   'patients_count':patients_count, 'medical_examinations_count':medical_examinations_count,
 			   'recent_hospitals':recent_hospitals, 'recent_patients':recent_patients}
 	
-	return render(request, '', context)
+	return render(request, 'hospital/dashboard.html', context)
 #-----------------------------------------------------
 #=====================================================
 #=====================================================
@@ -62,7 +62,7 @@ def h_patient_history(request, nationality_id):
 			   'medical_examinations_filter':medical_examinations_filter,
 			   'recent_health_state':recent_health_state, 'all_prescriptions':all_prescriptions}
 	
-	return render(request, '', context)
+	return render(request, 'hospital/medical_history/medical_history.html', context)
 #-----------------------------------------------------
 #=====================================================
 #=====================================================
@@ -88,7 +88,7 @@ def hospital_patients(request):
 	context = {'title':'Patients', 'all_patients':all_patients, 'hospital_patient_list':hospital_patient_list,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'hospital/patients/patients.html', context)
 #-----------------------------------------------------
 #=====================================================
 #=====================================================
@@ -122,7 +122,7 @@ def h_check_nationality_id(request):
 	context = {'title':'Check Nationality ID',
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'hospital/patients/check_nationality_id.html', context)
 #-----------------------------------------------------
 
 
@@ -155,7 +155,7 @@ def h_add_patient(request, nationality_id):
 		context = {'title':'New Patient', 'form':form, 'formset':formset,
 				   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-		return render(request, '', context)
+		return render(request, 'hospital/patients/add_patient.html', context)
 	return redirect('check_nationality_id')
 #-----------------------------------------------------
 #=====================================================
@@ -194,7 +194,7 @@ def h_update_health_state(request, nationality_id):
 	context = {'title':'Update Basic Health State', 'form':form,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'hospital/medical_history/basic_health_state.html', context)
 #-----------------------------------------------------
 
 
@@ -213,7 +213,7 @@ def h_health_state_history(request, nationality_id):
 	context = {'title':'Health State History', 'health_state':health_state,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'hospital/medical_history/basic_health_state_history.html', context)
 #-----------------------------------------------------
 
 #=====================================================
@@ -247,7 +247,7 @@ def h_add_prescription(request, nationality_id):
 	context = {'title':'Add Prescription', 'form':form,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'hospital/medical_history/add_prescription.html', context)
 #-----------------------------------------------------
 
 
@@ -285,7 +285,7 @@ def h_add_patient_disease(request, nationality_id):
 	context = {'title':'Update Diseases', 'diseases':diseases, 'old_diseases':old_diseases,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'hospital/medical_history/add_disease.html', context)
 #-----------------------------------------------------
 
 
@@ -318,5 +318,5 @@ def h_add_medical_test(request, nationality_id):
 	context = {'title':'Add Medical Test', 'form':form,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'hospital/medical_history/add_medical_test.html', context)
 #-----------------------------------------------------

@@ -1,0 +1,123 @@
+{% extends 'hospital/index.html' %}
+{% load static %}
+
+
+{% block style %}
+    <!-- FlexDatalist -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/flexdatalist/jquery.flexdatalist.min.css' %}">
+
+    <!-- Popover -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/popover/jquery.popSelect.min.css' %}">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/select2/css/select2.min.css' %}">
+
+    <!-- Timepicker -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/timepicker/bootstrap-timepicker.min.css' %}">
+
+    <!-- Touch Spin -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/touchspin/jquery.bootstrap-touchspin.min.css' %}">
+
+    <!-- Dropify -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/dropify/css/dropify.min.css' %}">
+
+    <!-- Colorpicker -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/colorpicker/css/bootstrap-colorpicker.min.css' %}">
+
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/datepicker/css/bootstrap-datepicker.min.css' %}">
+
+    <!-- DateRangepicker -->
+    <link rel="stylesheet" href="{% static '/ministry/plugin/daterangepicker/daterangepicker.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <!-- Content
+        ============================================= -->
+    <div id="wrapper">
+        <div class="main-content container">
+            <div class="row m-5">
+                <div class="col-md">
+                    <div class="card nobottommargin">
+                        <div class="card-body" style="padding: 40px;">
+                            <h3>Add Medical Test</h3>
+
+                            <form class="nobottommargin" action="#" method="post" enctype="multipart/form-data">
+
+                                {% csrf_token %}
+                                <br><br>
+                                <div class=" row p-5">
+                                    <div class="form-group col-md-12 col-xs-12">
+                                        <label for="inputName" class="control-label">Type</label>
+                                        {{form.type}}
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-xs-12">
+                                        <label for="validationCustom08">Report</label>
+                                         {{form.report}}
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-xs-12">
+                                        <label for="validationCustom08">Result</label>
+                                         {{form.result}}
+                                    </div>
+                                </div>
+
+                                <div class="col_full nobottommargin mt-5">
+                                    <button class="btn btn-success" value="register">Add</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+{% block script %}
+    <!-- Popover -->
+    <script src="{% static '/ministry/plugin/popover/jquery.popSelect.min.js' %}"></script>
+
+    <!-- Select2 -->
+    <script src="{% static '/ministry/plugin/select2/js/select2.min.js' %}"></script>
+
+    <!-- Multi Select -->
+    <script src="{% static '/ministry/plugin/multiselect/multiselect.min.js' %}"></script>
+
+    <!-- Touch Spin -->
+    <script src="{% static '/ministry/plugin/touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
+
+    <!-- Timepicker -->
+    <script src="{% static '/ministry/plugin/timepicker/bootstrap-timepicker.min.js' %}"></script>
+
+    <!-- Colorpicker -->
+    <script src="{% static '/ministry/plugin/colorpicker/js/bootstrap-colorpicker.min.js' %}"></script>
+
+    <!-- Datepicker -->
+    <script src="{% static '/ministry/plugin/datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+
+
+    <!-- DateRangepicker -->
+    <script src="{% static '/ministry/plugin/daterangepicker/daterangepicker.js' %}"></script>
+
+    <!-- Maxlength -->
+    <script src="{% static '/ministry/plugin/maxlength/bootstrap-maxlength.min.js' %}"></script>
+
+    <!-- Demo Scripts -->
+    <script src="{% static '/ministry/scripts/form.demo.min.js' %}"></script>
+
+    <!-- Dropify -->
+    <script src="{% static '/ministry/plugin/dropify/js/dropify.min.js' %}"></script>
+    <script src="{% static '/ministry/scripts/fileUpload.demo.min.js' %}"></script>
+
+    <!-- Validator -->
+    <script src="{% static '/ministry/plugin/validator/validator.min.js' %}"></script>
+{% endblock %}

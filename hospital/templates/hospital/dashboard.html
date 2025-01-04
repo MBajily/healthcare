@@ -1,0 +1,256 @@
+{% extends 'hospital/index.html' %}
+{% load static %}
+
+{% block style %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+	<div id="wrapper">
+		<div class="main-content container">
+			<div class="row small-spacing">
+				<div class="col-lg-6 col-md-6 col-xs-12">
+					<div class="box-content bg-info text-white">
+						<div class="statistics-box with-icon">
+							<i class="ico small fa fa-group"></i>
+							<p class="text text-white">PATIENTS</p>
+							<h2 class="counter">{{patients_count}}</h2>
+						</div>
+					</div>
+					<!-- /.box-content -->
+				</div>
+				<!-- /.col-lg-6 col-md-6 col-xs-12 -->
+				<div class="col-lg-6 col-md-6 col-xs-12">
+					<div class="box-content bg-danger text-white">
+						<div class="statistics-box with-icon">
+							<i class="ico small fa fa-file"></i>
+							<p class="text text-white">Medical Records</p>
+							<h2 class="counter">{{medical_examinations_count}}</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .row -->
+			<div class="row small-spacing">
+				<div class="col-lg-6 col-xs-12">
+					<div class="box-content">
+						<h4 class="box-title">Patients</h4>
+						<!-- /.box-title -->
+						<div class="dropdown js__drop_down">
+							<a href="#" class="dropdown-icon glyphicon glyphicon-option-vertical js__drop_down_button"></a>
+							<ul class="sub-menu">
+								<li><a href="{% url 'patients' %}">Patients</a></li>
+							</ul>
+							<!-- /.sub-menu -->
+						</div>
+						<!-- /.dropdown js__dropdown -->
+						<canvas id="MonthPatients" class="chart--container">
+					    </canvas>
+						<!-- /#bar-chartjs-chart.chartjs-chart -->
+					</div>
+					<!-- /.box-content -->
+				</div>
+				<!-- /.col-xs-12 -->
+
+				<div class="col-lg-6 col-xs-12">
+					<div class="box-content">
+						<h4 class="box-title">Medical Records</h4>
+						<!-- /.box-title -->
+						<canvas id="NewMedicalExaminations" class="chart--container">
+					    </canvas>
+						<!-- /#donut-chartjs-chart.chartjs-chart -->
+					</div>
+					<!-- /.box-content -->
+				</div>
+				<!-- /.col-xs-12 -->
+			</div>
+			<!-- .row -->
+			
+
+			<div class="row small-spacing">		
+				<div class="col-lg-6 col-xs-12">
+					<div class="box-content">
+						<h4 class="box-title mt-3"><i class="mdi mdi-account-multiple"></i> Recent Patients Added</h4>
+						<!-- /.box-title -->
+						<table class="table table-striped margin-bottom-10 table-purchases">
+							<thead>
+								<tr>
+									<th style="width:40%;">Name</th>
+									<th>Gender</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for patient in recent_patients %}
+								<tr>
+									<td>{{patient.civil_status.full_name}}</td>
+									<td>{{patient.civil_status.age}}</td>
+									<td><i class="mdi mdi-calendar"></i> {{patient.date_joined}}</td>
+								</tr>
+								{% endfor %}
+								<tr>
+									<td>...</td>
+									<td>...</td>
+									<td>...</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+						<div class="row"><a href="{% url 'patients' %}" class="btn btn-secondary text-dark mx-auto col-6">All Patients <i class="fa fa-angle-down"></i></a></div>
+						<!-- /.table -->
+					</div>
+					<!-- /.box-content -->
+				</div>
+				<!-- /.col-lg-6 col-xs-12 -->
+				<div class="col-lg-6 col-xs-12">
+					<div class="box-content">
+						<h4 class="box-title mt-3"><i class="fa fa-file"></i> Recent Records Added</h4>
+						<!-- /.box-title -->
+						<table class="table table-striped margin-bottom-10 table-purchases">
+							<thead>
+								<tr>
+									<th style="width:40%;">Type</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for hospital in recent_hospitals %}
+								<tr>
+									<td>{{hospital.name}}</td>
+									<td><i class="mdi mdi-calendar"></i> {{hospital.date_joined|timesince}} ago</td>
+								</tr>
+								{% endfor %}
+								<tr>
+									<td>...</td>
+									<td>...</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+						<div class="row"><a href="{% url 'hospitals' %}" class="btn btn-secondary text-dark mx-auto col-6">All Records <i class="fa fa-angle-down"></i></a></div>
+						<!-- /.table -->
+					</div>
+					<!-- /.box-content -->
+				</div>
+				<!-- /.col-lg-6 col-xs-12 -->
+			</div>
+			<!-- /.row -->		
+		</div>
+		<!-- /.main-content -->
+	</div><!--/#wrapper -->
+{% endblock %}
+
+{% block script %}
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		//####################################
+		// Patients
+		//####################################
+		var monthPatients = {
+			'items':[],
+			'values':[],
+		}
+
+		var monthPatientsDataURL = '/data/patients/json/'
+		$.ajax({
+			method:'GET',
+			url:monthPatientsDataURL,
+			success:function(response){
+				console.log('RESPONSE:', response)
+				for (var i in response){
+					var key = Object.keys(response[i])[0]
+					var value = Object.values(response[i])[0]
+					monthPatients.items.push(key)
+					monthPatients.values.push(value)
+				}
+				console.log('monthPatients:', monthPatients)
+				buildMonthPatientsChart()
+
+			}
+		})
+
+		function buildMonthPatientsChart(){
+			const ctx = document.getElementById('MonthPatients');
+			const Dashboard = new Chart(ctx, {
+			    type: 'bar',
+			    data: {
+			        labels: monthPatients.items,
+			        datasets: [{
+			            label: 'Patients', 
+			            data: monthPatients.values,
+			            backgroundColor: '#007bff',
+			            borderColor: '#007bff',
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            y: {
+			                beginAtZero: true
+			            }
+			        }
+			    }
+			});
+		}
+		//####################################
+		//####################################
+		//####################################
+	</script>
+	<script type="text/javascript">
+		//####################################
+		// New MedicalExaminations
+		//####################################	
+
+		var newMedicalExaminations = {
+			'items':[],
+			'values':[],
+		}
+		var newMedicalExaminationsDataURL = '/data/medical_examinations/json/'
+		$.ajax({
+			method:'GET',
+			url:newMedicalExaminationsDataURL,
+			success:function(response){
+				console.log('RESPONSE:', response)
+				for (var i in response){
+					var key = Object.keys(response[i])[0]
+					var value = Object.values(response[i])[0]
+					newMedicalExaminations.items.push(key)
+					newMedicalExaminations.values.push(value)
+				}
+				console.log('newMedicalExaminations:', newMedicalExaminations)
+				buildNewMedicalExaminationsChart()
+
+			}
+		})
+		function buildNewMedicalExaminationsChart(){
+			const ctx2 = document.getElementById('NewMedicalExaminations');
+			const NewMedicalExaminations = new Chart(ctx2, {
+			    type: 'line',
+			    data: {
+			        labels: newMedicalExaminations.items,
+			        datasets: [{
+			            label: 'Medical Records',
+			            data: newMedicalExaminations.values,
+			            backgroundColor: 'red',
+			            borderColor: 'red',
+			            borderWidth: 1.5
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            y: {
+			                beginAtZero: true
+			            }
+			        }
+			    }
+			});
+		}
+
+
+		//####################################
+		//####################################
+		//####################################
+	</script>
+{% endblock %}
