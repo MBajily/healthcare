@@ -1,0 +1,193 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>ES | {{title}}</title>
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<!-- <link rel="stylesheet" href="{% static '/bootstrap-4.6.1/css/bootstrap.min.css' %}"> -->
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" href="{% static '/patient/styles/style-horizontal.min.css' %}">
+	
+	<!-- Material Design Icon -->
+	<link rel="stylesheet" href="{% static '/patient/fonts/material-design/css/materialdesignicons.css' %}">
+
+	<!-- mCustomScrollbar -->
+	<link rel="stylesheet" href="{% static '/patient/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css' %}">
+
+	<!-- Waves Effect -->
+	<link rel="stylesheet" href="{% static '/patient/plugin/waves/waves.min.css' %}">
+
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="{% static '/patient/plugin/sweet-alert/sweetalert.css' %}">
+	
+	<!-- Percent Circle -->
+	<link rel="stylesheet" href="{% static '/patient/plugin/percircle/css/percircle.css' %}">
+
+
+	
+	{% block style %}{% endblock %}
+</head>
+
+<body style="font-size: 15px;">
+<header class="fixed-header">
+	<div class="header-top">
+		<div class="container">
+			<div class="pull-left">
+				<a href="{% url 'home' %}" class="logo"><img src="{% static '/home/logos/logo_white.png' %}" style="max-width: 100px"></a>
+			</div>
+			<!-- /.pull-left -->
+			<div class="pull-right">
+				<div class="ico-item hidden-on-desktop">
+					<button type="button" class="menu-button js__menu_button fa fa-bars waves-effect waves-light"></button>
+				</div>
+				<div class="ico-item fa fa-arrows-alt js__full_screen"></div>
+				<!-- /.ico-item -->
+				<div class="ico-item">
+					<a href="#" class="ico-item fa fa-user js__toggle_open" data-target="#user-status"></a>
+					<div id="user-status" class="user-status js__toggle">
+						<h4 class="name"><a href="{% url 'patient_history' %}">{{selected_patient.civil_status.full_name}}</a></h4>
+
+						<a class="btn btn-danger js__logout" href="{% url 'logout' %}">Log Out</a>
+						<!-- /.name -->
+					</div>
+					<!-- /#user-status -->
+				</div>
+				<!-- /.ico-item -->
+			</div>
+			<!-- /.pull-right -->
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /.header-top -->
+	<nav class="nav-horizontal">
+		<button type="button" class="menu-close hidden-on-desktop js__close_menu"><i class="fa fa-times"></i><span>CLOSE</span></button>
+		<div class="container">
+			<ul class="menu">
+				{% if c_main_menu == 'client_profile' %}
+					<li class="current">
+						<a href="{% url 'patient_history' %}"><i class="ico mdi mdi-account"></i><span>History</span></a>
+					</li>
+				{% else %}
+					<li>
+						<a href="{% url 'patient_history' %}"><i class="ico mdi mdi-account"></i><span>History</span></a>
+					</li>
+				{% endif %}
+			</ul><!-- /.menu -->
+		</div>
+		<!-- /.container -->
+	</nav>
+	<!-- /.nav-horizontal -->
+</header>
+<!-- /.fixed-header -->
+
+
+	{% block content %}{% endblock %}
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="assets/script/html5shiv.min.js"></script>
+		<script src="assets/script/respond.min.js"></script>
+	<![endif]-->
+	<!-- 
+	================================================== -->
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+	<!-- <script src="{% static '/bootstrap-4.6.1/js/bootstrap.min.js' %}"></script> -->
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{% static '/patient/scripts/jquery.min.js' %}"></script>
+	<script src="{% static '/patient/scripts/modernizr.min.js' %}"></script>
+	<!-- <script src="{% static '/patient/plugin/bootstrap/js/bootstrap.min.js' %}"></script> -->
+	<script src="{% static '/patient/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+	<script src="{% static '/patient/plugin/nprogress/nprogress.js' %}"></script>
+	<script src="{% static '/patient/plugin/sweet-alert/sweetalert.min.js' %}"></script>
+	<script src="{% static '/patient/plugin/waves/waves.min.js' %}"></script>
+	<!-- Full Screen Plugin -->
+	<script src="{% static '/patient/plugin/fullscreen/jquery.fullscreen-min.js' %}"></script>
+
+
+	<script src="{% static '/patient/scripts/main.min.js' %}"></script>
+	<script src="{% static '/patient/scripts/horizontal-menu.min.js' %}"></script>
+
+
+	<script type="text/javascript">
+		(function($) {
+			"use strict"; 
+			
+			var Core = {};
+			NProgress.start();
+			
+			$(document).ready(function(){
+				Core.module.init();
+				Core.plugin.init();
+				if ($('[data-toggle="tooltip"]').length) $('[data-toggle="tooltip"]').tooltip() //Enable tooltip
+				return false;
+			});
+
+
+			
+			Core.module = {
+				init : function(){
+					Core.module.logout();
+					return false;
+				},
+				logout: function(){
+					$(".js__logout").on("click",function(event){
+						event.preventDefault();
+						swal({   
+							title: "Logout?",   
+							text: "Are you sure you want to logout?",   
+							type: "warning",   
+							showCancelButton: true,   
+							confirmButtonColor: "#DD6B55",   
+							confirmButtonText: "Yes, I'm out!", 
+							cancelButtonText: "No, stay plx!", 
+							closeOnConfirm: false,
+							closeOnCancel: true,
+							confirmButtonColor: '#f60e0e',
+						}, function(isConfirm){   
+							if (isConfirm) {     
+								swal({
+									title : "Logout success", 
+									text: "See you later!", 
+									type: "success",
+									confirmButtonColor: '#304ffe',
+
+								});  
+								setTimeout(function(){
+									return document.location.href ="{% url 'logout' %}";
+
+								}, 1000);	
+							} else {    
+							} 
+						});
+						
+					});
+				},
+			}
+			
+		})(jQuery);
+	</script>
+
+	{% block script %}{% endblock %}
+
+
+</body>
+</html>
