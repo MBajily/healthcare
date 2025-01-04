@@ -1,0 +1,27 @@
+{% extends 'ministry/index.html' %}
+{% load static %}
+
+
+{% block content %}
+	<div id="wrapper">
+		<div class="main-content">
+			<div class="row m-auto">
+				<div class="col-6">
+					<div class="card card-body">
+						<p>Are you sure to deactive "{{item.email}}"</p>
+
+						<form action="{% url 'hospital_deactive' item.id %}" method="POST">
+							{% csrf_token %}
+							<div class="p-5">
+	                            <label>Write your admin's password<span class="text-danger">*</span></label>
+	                            <input type="password" name="admin_password" class='form-control' id='inputName' required='True'>
+	                        </div>
+							<a class="btn btn-outline-secondary" href="{% url 'hospitals' %}">Cancel</a>
+							<input class="btn btn-danger" type="submit" name="Deactivate">
+						</form>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

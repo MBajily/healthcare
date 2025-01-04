@@ -1,0 +1,48 @@
+{% extends 'ministry/index.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Content
+        ============================================= -->
+    <div id="wrapper">
+        <div class="main-content">
+            <div class="row m-5">
+                <div class="col-md">
+                    <div class="card nobottommargin">
+                        <div class="card-body" style="padding: 40px;">
+                            <h3>Add Hospital</h3>
+
+                            <form class="nobottommargin" action="#" method="post">
+
+                                {% csrf_token %}
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="form-group col-11 m-3">
+                                        <label for="validationCustom08">Email:</label>
+                                        <input type="email" name="email" class='form-control' id='inputName' required='True'>
+                                    </div>
+                                </div>
+                                {{form}}
+                                <div class="p-5">
+                                    <label>Write your admin's password<span class="text-danger">*</span></label>
+                                    <input type="password" name="admin_password" class='form-control' id='inputName' required='True'>
+                                </div>
+
+                                <div class="col_full nobottommargin">
+                                    <button class="btn btn-success" value="register">Add Now</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

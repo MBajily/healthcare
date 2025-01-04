@@ -1,0 +1,278 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Seha | {{title}}</title>
+	<link rel="shortcut icon" href="{% static '/home/logos/icon.png' %}" type="image/x-icon" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" href="{% static '/ministry/styles/style.min.css' %}">
+	
+	<!-- Material Design Icon -->
+	<link rel="stylesheet" href="{% static '/ministry/fonts/material-design/css/materialdesignicons.css' %}">
+
+	<!-- mCustomScrollbar -->
+	<link rel="stylesheet" href="{% static '/ministry/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css' %}">
+
+	<!-- Waves Effect -->
+	<link rel="stylesheet" href="{% static '/ministry/plugin/waves/waves.min.css' %}">
+
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="{% static '/ministry/plugin/sweet-alert/sweetalert.css' %}">
+	
+	<!-- Percent Circle -->
+	<link rel="stylesheet" href="{% static '/ministry/plugin/percircle/css/percircle.css' %}">
+
+	<!-- Chartist Chart -->
+	<link rel="stylesheet" href="{% static '/ministry/plugin/chart/chartist/chartist.min.css' %}">
+
+	{% block style %}{% endblock %}
+</head>
+
+<body>
+<div class="main-menu">
+	<header class="header">
+		<a href="{% url 'hospitals' %}" class="logo"><img class="logo-main" src="{% static '/home/logos/logo.png' %}" alt="Logo" style="max-height: 40px;" /></a>
+		<button type="button" class="button-close fa fa-times js__menu_close"></button>
+	</header>
+	<!-- /.header -->
+	<div class="content" style="min-height: 100%">
+		<!-- vvvv  navigation  vvvv -->
+		<div class="navigation">
+			<ul class="menu js__accordion">
+
+				{% if main_menu == 'dashboard' %}
+					<li class="current">
+						<a class="waves-effect" href="{% url 'dashboard' %}"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Dashboard</span></a>
+					</li>
+				{% else %}
+					<li>
+						<a class="waves-effect" href="{% url 'dashboard' %}"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Dashboard</span></a>
+					</li>
+				{% endif %}
+
+				{% if main_menu == 'hospitals' %}
+					<li class="current active">
+						<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-hospital-building"></i><span>Hospitals</span><span class="menu-arrow fa fa-angle-down"></span></a>
+						<ul class="sub-menu js__content">
+							{% if sub_menu == 'all_hospitals' %}
+								<li class="current">
+									<a class="waves-effect" href="{% url 'hospitals' %}"><i style="font-size: 20px;" class="mdi mdi-hospital-marker"></i> Hospitals</a>
+								</li>
+							{% else %}
+								<li>
+									<a class="waves-effect" href="{% url 'hospitals' %}"><i style="font-size: 20px;" class="mdi mdi-hospital-marker"></i> Hospitals</a>
+								</li>
+							{% endif %}
+
+							{% if sub_menu == 'add_hospital' %}
+								<li class="current">
+									<a class="waves-effect" href="{% url 'add_hospital' %}"><i style="font-size: 20px;" class="mdi mdi-hospital"></i> New Hospital</a>
+								</li>
+							{% else %}
+								<li>
+									<a class="waves-effect" href="{% url 'add_hospital' %}"><i style="font-size: 20px;" class="mdi mdi-hospital"></i> New Hospital</a>
+								</li>
+							{% endif %}
+						</ul>
+						<!-- /.sub-menu js__content -->
+					</li>
+				{% else %}
+					<li>
+						<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-hospital-building"></i><span>Hospitals</span><span class="menu-arrow fa fa-angle-down"></span></a>
+						<ul class="sub-menu js__content">
+							<li>
+								<a class="waves-effect" href="{% url 'hospitals' %}"><i style="font-size: 20px;" class="mdi mdi-hospital-marker"></i> Hospitals</a>
+							</li>
+
+							<li>
+								<a class="waves-effect" href="{% url 'add_hospital' %}"><i style="font-size: 20px;" class="mdi mdi-hospital"></i> New Hospital</a>
+							</li>
+							
+						</ul>
+						<!-- /.sub-menu js__content -->
+					</li>
+				{% endif %}
+				{% if main_menu == 'patients' %}
+					<li class="current active">
+						<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-account-multiple"></i><span>Patients</span><span class="menu-arrow fa fa-angle-down"></span></a>
+						<ul class="sub-menu js__content">
+							{% if sub_menu == 'all_patients' %}
+								<li class="current">
+									<a class="waves-effect" href="{% url 'patients' %}"><i style="font-size: 20px;" class="mdi mdi-account-multiple"></i> Patients</a>
+								</li>
+							{% else %}
+								<li>
+									<a class="waves-effect" href="{% url 'patients' %}"><i style="font-size: 20px;" class="mdi mdi-account-multiple"></i> Patients</a>
+								</li>
+							{% endif %}
+
+							{% if sub_menu == 'add_patient' %}
+								<li class="current">
+									<a class="waves-effect" href="{% url 'check_nationality_id' %}"><i style="font-size: 20px;" class="mdi mdi-account-plus"></i> New Patient</a>
+								</li>
+							{% else %}
+								<li>
+									<a class="waves-effect" href="{% url 'check_nationality_id' %}"><i style="font-size: 20px;" class="mdi mdi-account-plus"></i> New Patient</a>
+								</li>
+							{% endif %}
+						</ul>
+						<!-- /.sub-menu js__content -->
+					</li>
+				{% else %}
+					<li>
+						<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-account-multiple"></i><span>patients</span><span class="menu-arrow fa fa-angle-down"></span></a>
+						<ul class="sub-menu js__content">
+							<li>
+								<a class="waves-effect" href="{% url 'patients' %}"><i style="font-size: 20px;" class="mdi mdi-account-multiple"></i> Patients</a>
+							</li>
+
+							<li>
+								<a class="waves-effect" href="{% url 'check_nationality_id' %}"><i style="font-size: 20px;" class="mdi mdi-account-plus"></i> New Patient</a>
+							</li>
+							
+						</ul>
+						<!-- /.sub-menu js__content -->
+					</li>
+				{% endif %}
+					<li>
+						<a class="waves-effect js__logout" href="{% url 'dashboard' %}"><i class="menu-icon mdi mdi-logout"></i><span>Logout</span></a>
+					</li>
+			</ul>
+			<!-- /.menu js__accordion -->
+		</div>
+		<!-- /.navigation -->
+	</div>
+	<!-- /.content -->
+</div>
+<!-- /.main-menu -->
+
+<div class="fixed-navbar">
+	<div class="pull-left">
+		<button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
+		<h1 class="page-title">Home</h1>
+		<!-- /.page-title -->
+	</div>
+	<!-- /.pull-left -->
+	<div class="pull-right">
+		<!-- <div class="ico-item">
+			<a href="#" class="ico-item fa fa-search js__toggle_open" data-target="#searchform-header"></a>
+			<form action="#" id="searchform-header" class="searchform js__toggle"><input type="search" placeholder="Search..." class="input-search"><button class="fa fa-search button-search" type="submit"></button></form>
+		</div> -->
+		<!-- /.ico-item -->
+		<div class="ico-item fa fa-arrows-alt js__full_screen"></div>
+		<!-- /.ico-item fa fa-fa-arrows-alt -->
+		
+		<div class="ico-item">
+			<div class="fa fa-user"></div>
+			<ul class="sub-ico-item">
+				<li><a href="#">Settings</a></li>
+				<li><a class="js__logout" href="">Log Out</a></li>
+			</ul>
+			<!-- /.sub-ico-item -->
+		</div>
+		<!-- /.ico-item -->
+	</div>
+	<!-- /.pull-right -->
+</div>
+<!-- /.fixed-navbar -->
+
+{% block content %} {% endblock %}
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="ministry/script/html5shiv.min.js"></script>
+		<script src="ministry/script/respond.min.js"></script>
+	<![endif]-->
+	<!-- 
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+<!-- 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
+	<script src="{% static '/ministry/scripts/jquery.min.js' %}"></script>
+	<script src="{% static '/ministry/scripts/modernizr.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/nprogress/nprogress.js' %}"></script>
+	<script src="{% static '/ministry/plugin/sweet-alert/sweetalert.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/waves/waves.min.js' %}"></script>
+	<!-- Full Screen Plugin -->
+	<script src="{% static '/ministry/plugin/fullscreen/jquery.fullscreen-min.js' %}"></script>
+
+	<!-- chart.js Chart -->
+	<script src="{% static '/ministry/plugin/chart/chartjs/Chart.bundle.min.js' %}"></script>
+	<script src="{% static '/ministry/scripts/chart.chartjs.init.min.js' %}"></script>
+
+	<!-- Sparkline Chart -->
+	<script src="{% static '/ministry/plugin/chart/sparkline/jquery.sparkline.min.js' %}"></script>
+	<script src="{% static '/ministry/scripts/chart.sparkline.init.min.js' %}"></script>
+
+	<script src="{% static '/ministry/scripts/main.min.js' %}"></script>
+	<script type="text/javascript">
+		(function($) {
+			"use strict"; 
+			
+			var Core = {};
+			NProgress.start();
+			
+			$(document).ready(function(){
+				Core.module.init();
+				Core.plugin.init();
+				if ($('[data-toggle="tooltip"]').length) $('[data-toggle="tooltip"]').tooltip() //Enable tooltip
+				return false;
+			});
+
+
+			
+			Core.module = {
+				init : function(){
+					Core.module.logout();
+					return false;
+				},
+				logout: function(){
+					$(".js__logout").on("click",function(event){
+						event.preventDefault();
+						swal({   
+							title: "Logout?",   
+							text: "Are you sure you want to logout?",   
+							type: "warning",   
+							showCancelButton: true,   
+							confirmButtonColor: "#DD6B55",   
+							confirmButtonText: "Yes, I'm out!", 
+							cancelButtonText: "No, stay plx!", 
+							closeOnConfirm: false,
+							closeOnCancel: true,
+							confirmButtonColor: '#f60e0e',
+						}, function(isConfirm){   
+							if (isConfirm) {     
+								swal({
+									title : "Logout success", 
+									text: "See you later!", 
+									type: "success",
+									confirmButtonColor: '#304ffe',
+
+								});  
+								setTimeout(function(){
+									return document.location.href ="{% url 'logout' %}";
+
+								}, 1000);	
+							} else {    
+							} 
+						});
+						
+					});
+				},
+			}
+			
+		})(jQuery);
+	</script>
+
+	{% block script %}{% endblock %}
+</body>
+</html>

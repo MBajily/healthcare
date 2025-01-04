@@ -37,7 +37,7 @@ def dashboard(request):
 			   'patients_count':patients_count, 'medical_examinations_count':medical_examinations_count,
 			   'recent_hospitals':recent_hospitals, 'recent_patients':recent_patients}
 	
-	return render(request, '', context)
+	return render(request, 'ministry/dashboard/dashboard.html', context)
 #-----------------------------------------------------
 #=====================================================
 #=====================================================
@@ -69,7 +69,7 @@ def medical_history(request, nationality_id):
 			   'medical_examinations_filter':medical_examinations_filter,
 			   'recent_health_state':recent_health_state, 'all_prescriptions':all_prescriptions}
 	
-	return render(request, '', context)
+	return render(request, 'ministry/medical_history/medical_history.html', context)
 #-----------------------------------------------------
 #=====================================================
 #=====================================================
@@ -92,7 +92,7 @@ def hospitals(request):
 	context = {'title':'Hospitals', 'all_hospitals':all_hospitals, 
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/hospitals/hospitals.html', context)
 #-----------------------------------------------------
 
 
@@ -123,7 +123,7 @@ def add_hospital(request):
 	context = {'title':'New Hospital', 'form':form,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/hospitals/add_hospital.html', context)
 #-----------------------------------------------------
 
 #------------------- Update Hospital -------------------
@@ -150,7 +150,7 @@ def hospital_update(request, hospital_id):
 				'hospital_profile_form':hospital_profile_form, 'main_menu':main_menu,
 				'selected_hospital':selected_hospital}
 
-	return render(request, '', context)
+	return render(request, 'ministry/hospitals/hospital_update.html', context)
 #-----------------------------------------------------
 
 
@@ -177,7 +177,7 @@ def hospital_deactive(request, hospital_id):
 	context = {'title':'Deactive Hospital', 'item':selected_hospital,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/hospitals/hospital_deactive.html', context)
 #-----------------------------------------------------
 
 
@@ -204,7 +204,7 @@ def hospital_active(request, hospital_id):
 	context = {'title':'Active Hospital', 'item':selected_hospital,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/hospitals/hospital_active.html', context)
 #-----------------------------------------------------
 
 
@@ -225,7 +225,7 @@ def patients(request):
 	context = {'title':'Patients', 'all_patients':all_patients, 
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/patients/patients.html', context)
 #-----------------------------------------------------
 
 #----------------- Delete patient -----------------
@@ -248,7 +248,7 @@ def patient_delete(request, patient_id):
 	context = {'title':'Delete Patient', 'item':selected_patient,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/patients/patient_delete.html', context)
 #-----------------------------------------------------
 
 
@@ -268,7 +268,7 @@ def check_nationality_id(request):
 	context = {'title':'Check Nationality ID',
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/patients/check_nationality_id.html', context)
 #-----------------------------------------------------
 
 
@@ -303,7 +303,7 @@ def add_patient(request, nationality_id):
 			context = {'title':'New Patient', 'form':form, 'formset':formset,
 					   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-			return render(request, '', context)
+			return render(request, 'ministry/patients/add_patient.html', context)
 	return redirect('check_nationality_id')
 #-----------------------------------------------------
 
@@ -333,7 +333,7 @@ def patient_update(request, nationality_id):
 				'main_menu':main_menu, 'patient_profile_form':patient_profile_form,
 				'selected_patient':selected_patient, 'civil_status':civil_status}
 
-	return render(request, '', context)
+	return render(request, 'ministry/patients/patient_update.html', context)
 #-----------------------------------------------------
 
 
@@ -408,7 +408,7 @@ def update_health_state(request, nationality_id):
 	context = {'title':'Update Basic Health State', 'form':form,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/medical_history/basic_health_state.html', context)
 #-----------------------------------------------------
 
 
@@ -427,7 +427,7 @@ def health_state_history(request, nationality_id):
 	context = {'title':'Health State History', 'health_state':health_state,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/medical_history/basic_health_state_history.html', context)
 #-----------------------------------------------------
 
 #=====================================================
@@ -462,7 +462,7 @@ def add_prescription(request, nationality_id):
 	context = {'title':'Add Prescription', 'form':form,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/medical_history/add_prescription.html', context)
 #-----------------------------------------------------
 
 #=====================================================
@@ -494,7 +494,7 @@ def add_medical_test(request, nationality_id):
 	context = {'title':'Add Medical Test', 'form':form,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/medical_history/add_medical_test.html', context)
 #-----------------------------------------------------
 
 #=====================================================
@@ -526,5 +526,5 @@ def add_patient_disease(request, nationality_id):
 	context = {'title':'Update Diseases', 'diseases':diseases, 'old_diseases':old_diseases,
 			   'main_menu':main_menu, 'sub_menu':sub_menu}
 
-	return render(request, '', context)
+	return render(request, 'ministry/medical_history/add_disease.html', context)
 #-----------------------------------------------------

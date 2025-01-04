@@ -1,0 +1,39 @@
+{% extends 'ministry/index.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Content
+        ============================================= -->
+    <div id="wrapper">
+        <div class="main-content">
+            <div class="row m-5">
+                <div class="col-md">
+                    <div class="card nobottommargin">
+                        <div class="card-body" style="padding: 40px;">
+                            <h3>Check Nationality ID</h3>
+
+                            <form class="nobottommargin" action="#" method="post">
+
+                                {% csrf_token %}
+                                <br><br>
+
+                                <label>Nationality ID:</label>
+                                <input type="text" name="nationality_id" class='form-control' id='inputName' required='True'><br><br>
+
+                                <div class="col_full nobottommargin">
+                                    <button class="btn btn-success" value="register">Check Now</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

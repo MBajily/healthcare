@@ -1,0 +1,76 @@
+{% extends 'ministry/index.html' %}
+{% load static %}
+
+
+{% block style %}
+	<!-- Data Tables -->
+	<link rel="stylesheet" href="{% static '/ministry/plugin/datatables/media/css/dataTables.bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '/ministry/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css' %}">
+{% endblock %}
+
+
+{% block content %}
+	<div id="wrapper">
+		<div class="main-content">
+			<div class="row small-spacing">
+				<div class="col-md">
+					<div class="card card-body">
+						<label style="font-size: 30px;" class="control-label mt-5 mx-5">Hospitals</label>
+<!-- 						<div class="m-2">
+							  <form method="GET">
+									{{all_clients_filter.form}}
+							    <button class="btn btn-primary" type="submit">Search</button>
+							  </form>
+						</div> -->
+						<table id="example" class="table table-striped table-bordered display" style="width:100%">
+							<thead>
+								<tr>
+									<th scope="col">ID</th>
+								    <th scope="col">Name</th>
+								    <th scope="col">email</th>
+								    <th scope="col">State</th>
+								    <th scope="col">Update</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th scope="col">ID</th>
+								    <th scope="col">Name</th>
+								    <th scope="col">email</th>
+								    <th scope="col">State</th>
+								    <th scope="col">Update</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								{% for hospital in all_hospitals %}
+								<tr>
+									<td>{{hospital.hospital_id}}</td>
+									<td>{{hospital.name}}</a></td>
+									<td>{{hospital.user.email}}</td>
+									{% if hospital.is_deleted == False %}
+										<td><a class="text-success" href="{% url 'hospital_deactive' hospital.user.id %}"><strong>ACTIVE</strong></a></td>
+									{% elif hospital.is_deleted == True %}
+										<td><a class="text-danger" href="{% url 'hospital_active' hospital.user.id %}"><strong>DEACTIVE</strong></a></td>
+									{% endif %}
+									<td><a class="text-primary" href="{% url 'hospital_update' hospital.user.id %}"><strong>UPDATE</strong></a></td>
+								</tr>
+								{% endfor %}
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block script %}
+	<!-- Data Tables -->
+	<script src="{% static '/ministry/plugin/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/datatables/media/js/dataTables.bootstrap.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/datatables/extensions/Responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/datatables/extensions/Responsive/js/responsive.bootstrap.min.js' %}"></script>
+	<script src="{% static '/ministry/scripts/datatables.demo.min.js' %}"></script>
+{% endblock %}

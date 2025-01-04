@@ -1,0 +1,38 @@
+{% extends 'ministry/index.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Content
+        ============================================= -->
+    <div id="wrapper">
+        <div class="main-content">
+            <div class="row m-5">
+                <div class="col-md">
+                    <div class="card nobottommargin">
+                        <div class="card-body" style="padding: 40px;">
+                            <h3>Update Health State</h3>
+
+                            <form class="nobottommargin" action="#" method="post">
+
+                                {% csrf_token %}
+                                <br><br>
+                                
+                                {{form}}
+
+                                <div class="col_full nobottommargin mt-5">
+                                    <button class="btn btn-success" value="register">Update</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

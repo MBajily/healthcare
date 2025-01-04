@@ -1,0 +1,81 @@
+{% extends 'ministry/index.html' %}
+{% load static %}
+
+
+{% block style %}
+	<!-- Data Tables -->
+	<link rel="stylesheet" href="{% static '/ministry/plugin/datatables/media/css/dataTables.bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static '/ministry/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css' %}">
+{% endblock %}
+
+
+{% block content %}
+	<div id="wrapper">
+		<div class="main-content">
+			<div class="row small-spacing">
+				<div class="col-md">
+					<div class="card card-body">
+						<label style="font-size: 30px;" class="control-label mt-5 mx-5">Patients</label>
+<!-- 						<div class="m-2">
+							  <form method="GET">
+									{{all_clients_filter.form}}
+							    <button class="btn btn-primary" type="submit">Search</button>
+							  </form>
+						</div> -->
+						<table id="example" class="table table-striped table-bordered display" style="width:100%">
+							<thead>
+								<tr>
+									<th scope="col">ID</th>
+								    <th scope="col">Name</th>
+								    <th scope="col">Email</th>
+								    <th scope="col">Phone</th>
+								    <th scope="col">Gender</th>
+								    <th scope="col">Birth</th>
+								    <th scope="col">Update</th>
+								    <th scope="col">Delete</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th scope="col">ID</th>
+								    <th scope="col">Name</th>
+								    <th scope="col">Email</th>
+								    <th scope="col">Phone</th>
+								    <th scope="col">Gender</th>
+								    <th scope="col">Birth</th>
+								    <th scope="col">Update</th>
+								    <th scope="col">Delete</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								{% for patient in all_patients %}
+								<tr>
+									<td>{{patient.civil_status.nationality_id}}</td>
+									<td><a href="{% url 'medical_history' patient.civil_status.nationality_id %}">{{patient.civil_status.full_name}}</a></a></td>
+									<td>{{patient.user.email}}</td>
+									<td>{{patient.phone}}</td>
+									<td>{{patient.civil_status.gender}}</a></td>
+									<td>{{patient.civil_status.birth}}</a></td>
+									<td><a class="text-primary" href="{% url 'patient_update' patient.civil_status.nationality_id %}"><strong>UPDATE</strong></a></td>
+									<td><a class="text-primary" href="{% url 'patient_delete' patient.civil_status.nationality_id %}"><strong>DELETE</strong></a></td>
+								</tr>
+								{% endfor %}
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block script %}
+	<!-- Data Tables -->
+	<script src="{% static '/ministry/plugin/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/datatables/media/js/dataTables.bootstrap.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/datatables/extensions/Responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static '/ministry/plugin/datatables/extensions/Responsive/js/responsive.bootstrap.min.js' %}"></script>
+	<script src="{% static '/ministry/scripts/datatables.demo.min.js' %}"></script>
+{% endblock %}
