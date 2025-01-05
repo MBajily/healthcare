@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ministry',
     'hospital',
     'patient',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+AUTH_USER_MODEL = 'api.User'
+
+
+LOGIN_REDIRECT_URL = "/login/redirect/"
+LOGOUT_REDIRECT_URL = "/login/"
+REGISTER_REDIRECT_URL = "/login/"
