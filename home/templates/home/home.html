@@ -1,0 +1,187 @@
+{% extends 'home/index.html' %}
+{% load static %}
+
+{% block content %}  
+  <main class="main-content">
+    <!--== Start Hero Area Wrapper ==-->
+    <section class="home-slider-area">
+      <div class="home-slider-container default-slider-container">
+        <div class="home-slider-wrapper slider-default">
+          <div class="slider-content-area" data-bg-img="{% static 'home/img/slider/slider1.jpg' %}" style="position: relative; z-index: -1; max-height: 800px;">
+            <div class="container pt--0 pb--0">
+              <div class="slider-container">
+                <div class="row justify-content-center align-items-center">
+                  <div class="col-12 col-lg-8">
+                    <div class="slider-content">
+                      <h2 class="title"><span class="counter" data-counterup-delay="100">{{hospital_count}}</span> hospitals & <span class="counter" data-counterup-delay="100">{{patient_count}}</span> patients <br>are using this platform.</h2>
+                      <p class="desc">Best solution to improve healthcare industry in Sudan.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="play-video-btn">
+              <a href="https://www.youtube.com/mcvqOUtcAJg" class="video-popup">
+                <img src="{% static '/home/img/icons/play.png' %}" alt="Image-HasTech">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="home-slider-shape">
+        <img class="shape1" data-aos="fade-down" data-aos-duration="1500" src="{% static '/home/img/slider/vector1.png' %}" width="270" height="234" alt="Image-HasTech">
+        <img class="shape2" data-aos="fade-left" data-aos-duration="2000" src="{% static '/home/img/slider/vector2.png' %}" width="201" height="346" alt="Image-HasTech">
+        <img class="shape3" data-aos="fade-right" data-aos-duration="2000" src="{% static '/home/img/slider/vector3.png' %}" width="276" height="432" alt="Image-HasTech">
+        <img class="shape4" data-aos="flip-left" data-aos-duration="1500" src="{% static '/home/img/slider/vector4.png' %}" width="127" height="121" alt="Image-HasTech">
+      </div>
+    </section>
+    <!--== End Hero Area Wrapper ==-->
+
+
+    <!--== Start Work Process Area Wrapper ==-->
+    <section class="work-process-area">
+      <div class="container" data-aos="fade-down">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title text-center" >
+              <h3 class="title">How It Work?</h3>
+              <div class="desc">
+                <p>Many desktop publishing packages and web page editors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="working-process-content-wrap">
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" style="max-width: 50px;" src="{% static '/home/img/icons/user.png' %}" alt="Image-HasTech">
+                      <img class="icon-hover" style="max-width: 50px;" src="{% static '/home/img/icons/user-white.png' %}" alt="Image-HasTech">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">Create an Account</h4>
+                    <p class="desc">Add a new patient to the system by patient himself or the hospital.</p>
+                  </div>
+                  <div class="shape-arrow-icon">
+                    <img class="shape-icon" src="{% static '/home/img/icons/right-arrow.png' %}" alt="Image-HasTech">
+                    <img class="shape-icon-hover" src="{% static '/home/img/icons/right-arrow2.png' %}" alt="Image-HasTech">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" style="max-width: 50px;" src="{% static '/home/img/icons/hospital.png' %}" alt="Image-HasTech">
+                      <img class="icon-hover" style="max-width: 50px;" src="{% static '/home/img/icons/hospital-white.png' %}" alt="Image-HasTech">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">Visit Hospital</h4>
+                    <p class="desc">Start patient service process by reception of hospital.</p>
+                  </div>
+                  <div class="shape-arrow-icon">
+                    <img class="shape-icon" src="{% static '/home/img/icons/right-arrow.png' %}" alt="Image-HasTech">
+                    <img class="shape-icon-hover" src="{% static '/home/img/icons/right-arrow2.png' %}" alt="Image-HasTech">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" style="max-width: 50px;" src="{% static '/home/img/icons/medical-history.png' %}" alt="Image-HasTech">
+                      <img class="icon-hover" style="max-width: 50px;" src="{% static '/home/img/icons/medical-history-white.png' %}" alt="Image-HasTech">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">Medical Tests</h4>
+                    <p class="desc">Insert results of medical examinations to the patient history.</p>
+                  </div>
+                  <div class="shape-arrow-icon">
+                    <img class="shape-icon" src="{% static '/home/img/icons/right-arrow.png' %}" alt="Image-HasTech">
+                    <img class="shape-icon-hover" src="{% static '/home/img/icons/right-arrow2.png' %}" alt="Image-HasTech">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+              <div class="working-col">
+                <!--== Start Work Process ==-->
+                <div class="working-process-item">
+                  <div class="icon-box">
+                    <div class="inner">
+                      <img class="icon-img" style="max-width: 50px;" src="{% static '/home/img/icons/doctor.png' %}" alt="Image-HasTech">
+                      <img class="icon-hover" style="max-width: 50px;" src="{% static '/home/img/icons/doctor-white.png' %}" alt="Image-HasTech">
+                    </div>
+                  </div>
+                  <div class="content">
+                    <h4 class="title">Doctor's Diagnosis</h4>
+                    <p class="desc">It is long established fact reader distracted readable content</p>
+                  </div>
+                  <div class="shape-arrow-icon d-none">
+                    <img class="shape-icon" src="{% static '/home/img/icons/right-arrow.png' %}" alt="Image-HasTech">
+                    <img class="shape-icon-hover" src="{% static '/home/img/icons/right-arrow2.png' %}" alt="Image-HasTech">
+                  </div>
+                </div>
+                <!--== End Work Process ==-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Work Process Area Wrapper ==-->
+
+
+    <!--== Start Brand Logo Area Wrapper ==-->
+    <div class="brand-logo-area bg-color-gray">
+      <div class="container pt--0 pb--0" data-aos="fade-down">
+        <div class="row">
+          <div class="col-12">
+            <div class="brand-logo-content" >
+              <div class="swiper brand-logo-slider-container">
+                <div class="swiper-wrapper">
+                  {% for hospital in all_hospitals %}
+                  <div class="swiper-slide">
+                    <!--== Start Brand Logo Item ==-->
+                    <div class="brand-logo-item">
+                      <img src="{{hospital.logo}}" alt="{{hospital.english_name}} - logo">
+                    </div>
+                    <!--== End Brand Logo Item ==-->
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <!--== Add Swiper Arrows ==-->
+              <div class="swiper-btn-wrap">
+                <div class="brand-swiper-btn-prev">
+                  <i class="icofont-long-arrow-left"></i>
+                </div>
+                <div class="brand-swiper-btn-next">
+                  <i class="icofont-long-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Brand Logo Area Wrapper ==-->
+  </main>
+{% endblock %}
+

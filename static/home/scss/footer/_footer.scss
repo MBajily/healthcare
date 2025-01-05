@@ -1,0 +1,338 @@
+/*
+-----------------------------------------------------------------------
+  Footer CSS
+-----------------------------------------------------------------------
+*/
+
+.footer-area {
+  .widget-item {
+    margin-bottom: 30px;
+    &.widget-about {
+      @media #{$sm-device} {
+        margin: 0 40px 30px;
+        text-align: center;
+      }
+      @media #{$xxs-device} {
+        margin: 0 10px 30px;
+      }
+    }
+  }
+
+  .widget-title {
+    font-size: 28px;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 40px;
+    @media #{$lg-device} {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    @media #{$sm-device} {
+      display: none;
+    }
+  }
+
+  .nav-menu-item1 {
+    margin-left: 41px;
+    @media #{$lg-device} {
+      margin-left: 0;
+    }
+  }
+
+  .nav-menu-item2 {
+    margin-left: 54px;
+    @media #{$lg-device} {
+      margin-left: 0;
+    }
+  }
+
+  .nav-menu-item3 {
+    margin-left: 67px;
+    @media #{$lg-device} {
+      margin-left: 0;
+    }
+  }
+
+  .nav-menu-item4 {
+    margin-left: 77px;
+    @media #{$lg-device} {
+      margin-left: 0;
+    }
+  }
+
+  .widget-logo-area {
+    margin-bottom: 42px;
+    margin-top: -8px;
+    @media #{$lg-device} {
+      margin-bottom: 18px;
+      margin-top: -3px;
+    }
+  }
+
+  .desc {
+    color: #d8dadf;
+    font-size: 18px;
+    line-height: 1.95;
+    margin-bottom: 32px;
+    @media #{$lg-device} {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    @media #{$sm-device} {
+      justify-content: center;
+    }
+    a {
+      border: 2px solid #e3e8f1;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 14px;
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      text-align: center;
+      line-height: 45px;
+      @media #{$lg-device} {
+        font-size: 13px;
+        height: 42px;
+        width: 42px;
+        line-height: 38px;
+      }
+      + {
+        a {
+          margin-left: 15px;
+        }
+      }
+      &:hover {
+        border-color: $theme-color;
+        background-color: $theme-color;
+      }
+    }
+  }
+
+  .nav-menu {
+    margin-bottom: 0;
+    li {
+      color: #d8dadf;
+      display: block;
+      font-size: 18px;
+      line-height: 50px;
+      a {
+        color: #d8dadf;
+        font-size: 18px;
+        line-height: 50px;
+        padding: 0 0;
+        display: block;
+        @media #{$lg-device} {
+          font-size: 14px;
+          line-height: 45px;
+        }
+        @media #{$sm-device} {
+          line-height: 35px;
+        }
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+  }
+}
+
+.footer-top {
+  background-color: $theme-color;
+  padding: 47px 0 43px;
+  @media #{$md-device} {
+    padding: 47px 0 57px;
+  }
+}
+
+.footer-newsletter-content {
+  @media #{$md-device} {
+    text-align: center;
+  }
+  .title {
+    color: #fefdfc;
+    font-size: 40px;
+    line-height: 1.5;
+    @media #{$lg-device} {
+      font-size: 32px;
+      margin-bottom: 0;
+    }
+    @media #{$sm-device} {
+      font-size: 25px;
+    }
+  } 
+}
+
+.footer-newsletter-form {
+  display: flex;
+  justify-content: end;
+  margin-top: 28px;
+  @media #{$lg-device} {
+    margin-top: 18px;
+  }
+  form {
+    display: inline-block;
+    position: relative;
+    @media #{$lg-device} {
+      width: 100%;
+    }
+    [type="email"] {
+      background-color: #fff;
+      box-shadow: none;
+      width: 600px;
+      border: none;
+      height: 70px;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #272a33;
+      padding: 0 210px 0 32px;
+      @include placeholder {
+        color: #272a33;
+      }
+      @media #{$lg-device} {
+        font-size: 14px;
+        height: 55px;
+        padding: 0 210px 0 22px;
+        width: 100%;
+      }
+      @media #{$md-device} {
+        padding: 1px 148px 0 22px;
+      }
+      @media #{$sm-device} {
+        padding: 1px 118px 0 22px;
+      }
+    }
+    [type="submit"] {
+      position: absolute;
+      right: 4px;
+      padding: 0;
+      margin: 0;
+      background-color: #272a33;
+      color: #fff;
+      font-size: 16px;
+      border: 2px solid #272a33;
+      width: 201px;
+      height: 62px;
+      border-radius: 5px;
+      top: 50%;
+      transform: translate(0%, -50%);
+      @media #{$lg-device} {
+        font-size: 14px;
+        width: 140px;
+        height: 46px;
+      }
+      @media #{$sm-device} {
+        font-size: 13px;
+        width: 110px;
+      }
+      &:hover {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white;
+      }
+    }
+  }
+}
+
+.footer-main {
+  background-color: #272a33;
+  position: relative;
+  padding: 126px 0 86px;
+  @media #{$lg-device} {
+    padding: 75px 0 34px;
+  }
+  @media #{$sm-device} {
+    padding: 75px 0 44px;
+  }
+
+  .widget-collapsed-title {
+    display: block;
+    position: relative;
+    background-color: #333640;
+    border: 1px solid #3d3f48;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 0;
+    color: #fff;
+    font-weight: 600;
+    @include select-none (none);
+    @media #{$md-up-device} {
+      display: none;
+    }
+    &:before {
+      font-family: "IcoFont";
+      font-size: 14px;
+      content:"\ea67";
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 60px;
+      text-align: center;
+    }
+    &:not(.collapsed) {
+      &:before {
+        content: "\ea6a";
+        font-family: "IcoFont";
+      }
+    }
+  }
+
+  .widget-collapse-body {
+    @include transition(all .3s ease-out);
+    @media #{$md-up-device} {
+      display: block;
+    }
+    @media #{$sm-device} {
+      background-color: #333640;
+      border: 1px solid #3d3f48;
+      border-top: none;
+    }
+    .collapse-body {
+      @media #{$sm-device} {
+        padding: 16px 24px 16px;
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  background-color: #272a33;
+  text-align: center;
+  .footer-bottom-content {
+    border-top: 1px solid rgba(232, 238, 244, .08);
+    padding: 23px 0 24px;
+  }
+  .copyright {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 0;
+    position: relative;
+    top: 1px;
+    @media #{$lg-device} {
+      font-size: 14px;
+    }
+    @media #{$sm-device} {
+      vertical-align: -1px;
+    }
+    a {
+      color: $theme-color;
+      &:hover {
+        color: $white;
+      }
+    }
+    i {
+      color: $theme-color;
+      font-size: 16px;
+      vertical-align: 0px;
+      margin: 0;
+    }
+  }
+}

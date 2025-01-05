@@ -1,0 +1,375 @@
+/*
+-----------------------------------------------------------------------
+  Form CSS
+-----------------------------------------------------------------------
+*/
+
+#contact-form {
+  position: relative;
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .form-control {
+    border: 1px solid #eef0f5;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #656565;
+    height: 55px;
+    font-size: 15px;
+    padding: 0 20px 0;
+    @include transition(all .3s ease-out);
+    @media #{$lg-device} {
+      height: 45px;
+      font-size: 14px;
+    }
+    @include placeholder {
+      color: #656565;
+    }
+    &:active,
+    &:focus {
+      border-color: $theme-color;
+    }
+  }
+  textarea {
+    &.form-control {
+      height: 220px;
+      padding-top: 15px;
+      @media #{$lg-device} {
+        height: 120px;
+      }
+    }
+  }
+  .btn-theme {
+    font-size: 16px;
+    height: 55px;
+    margin-top: 10px;
+    @media #{$lg-device} {
+      font-size: 15px;
+      height: 45px;
+      margin-top: 5px;
+    }
+  }
+}
+
+.job-search-form {
+  position: relative;
+  z-index: 1;
+  .form-group {
+    margin-bottom: 0;
+    @media #{$md-device} {
+      margin-bottom: 10px;
+    }
+  }
+
+  .form-control {
+    background-color: $white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    color: #656565;
+    line-height: 68px;
+    font-size: 15px;
+    height: 68px;
+    outline: none;
+    margin: 0;
+    padding: 1px 46px 0 32px;
+    width: 300px;
+    @media #{$lg-device} {
+      width: 277px;
+      height: 54px;
+      line-height: 54px;
+      font-size: 14px;
+    }
+    @media #{$md-device} {
+      width: 100%;
+    }
+    @include placeholder {
+      color: #656565;
+    }
+  }
+
+  select {
+    &.form-control {
+      appearance: none;
+      background-image: url('../img/icons/arrow-down.png');
+      background-repeat: no-repeat;
+      background-position: right 29px center;
+      background-size: auto;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+      padding-top: 0;
+    }
+  }
+
+  .btn-form-search {
+    align-items: center;
+    background-color: $theme-color;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    color: $white;
+    display: flex;
+    font-size: 15px;
+    height: 68px;
+    justify-content: center;
+    width: 68px;
+    @media #{$lg-device} {
+      height: 54px;
+    }
+    @media #{$md-device} {
+      width: 100%;
+    }
+  }
+}
+
+.comment-form {
+  .form-group {
+    .form-control {
+      border: 1px solid transparent;
+      background-color: $gray-lighter;
+      box-shadow: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      @include transition(all .3s ease-out);
+      @media #{$lg-device} {
+        font-size: 14px;
+      }
+      &:active,
+      &:focus {
+        border: 1px solid #ededed;
+        background-color: transparent;
+      }
+    }
+    input {
+      height: 55px;
+      line-height: 55px;
+      padding: 5px 25px;
+    }
+    textarea {
+      height: 285px;
+      padding: 15px 25px;
+      @media #{$lg-device} {
+        height: 215px;
+      }
+      @media #{$md-device} {
+        height: 190px;
+      }
+      @media #{$sm-device} {
+        height: 160px;
+      }
+    }
+    .btn-theme {
+      font-size: 17px;
+      font-weight: $font-weight-medium;
+      height: 60px;
+      width: 200px;
+      margin-top: 10px;
+      @media #{$lg-device} {
+        font-size: 14px;
+        height: 50px;
+        width: 160px;
+        padding: 8px;
+      }
+      i {
+        font-size: 20px;
+        position: relative;
+        top: 3px;
+        left: 2px;
+      }
+    }
+  }
+}
+
+.login-register-form {
+  position: relative;
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .form-control {
+    border: 1px solid #eef0f5;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #656565;
+    height: 55px;
+    font-size: 15px;
+    padding: 0 20px 0;
+    @include transition(all .3s ease-out);
+    @media #{$lg-device} {
+      height: 45px;
+      font-size: 14px;
+    }
+    @include placeholder {
+      color: #656565;
+    }
+    &:active,
+    &:focus {
+      border-color: $theme-color;
+    }
+  }
+  .remember-forgot-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    @media #{$lg-device} {
+      margin-top: 6px;
+    }
+    @media #{$xxs-device} {
+      display: block;
+    }
+  }
+  .remember {
+    .form-check-input {
+      border: 1px solid #e3e4e9;
+      box-shadow: none;
+      cursor: pointer;
+      margin-top: 5px;
+      margin-right: 5px;
+      @include transition(all .3s ease-out);
+      @include select-none (none);
+      &:checked {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        + {
+          .form-check-label {
+            color: $theme-color;
+          }
+        }
+      }
+    }
+    .form-check-label {
+      cursor: pointer;
+      @include transition(all .3s ease-out);
+      @include select-none (none);
+      &:hover {
+        color: $theme-color;
+      }
+    }
+  }
+  .forgot-password {
+    @media #{$xxs-device} {
+      margin-top: 5px;
+    }
+    a {
+      font-size: 15px;
+      position: relative;
+      top: -1px;
+    }
+  }
+  .btn-theme {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 13px;
+    padding: 12px 35px 10px;
+    @media #{$lg-device} {
+      font-size: 15px;
+      margin-top: 4px;
+      padding: 8px 35px 6px;
+    }
+  }
+}
+.register-form-wrap {
+  .form-title {
+    .title {
+      margin-bottom: 41px;
+      padding-bottom: 24px;
+      @media #{$lg-device} {
+        margin-bottom: 30px;
+        padding-bottom: 14px
+      }
+    }
+  }
+  .nav {
+    justify-content: center;
+    margin-bottom: 30px;
+    @media #{$xxs-device} {
+      display: block;
+    }
+    .nav-item {
+      + {
+        .nav-item {
+          margin-left: 20px;
+          @media #{$xxs-device} {
+            margin-left: 0;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+    .nav-link {
+      background-color: #fff;
+      border: 1px solid #eef0f5;
+      border-radius: 5px;
+      color: #272a33;
+      font-size: 15px;
+      width: 130px;
+      height: 42px;
+      padding: 4px;
+      @include transition(all .3s ease-out);
+      @media #{$xxs-device} {
+        width: 100%;
+      }
+      i {
+        font-size: 13px;
+        position: relative;
+        top: -1px;
+        margin-right: 8px;
+      }
+      &.active {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white;
+      }
+      &#candidate-tab {
+        i {
+          font-size: 16px;
+          top: 0;
+          margin-top: 3px;
+        }
+      }
+      &:hover {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white;
+      }
+    }
+  }
+}
+.login-register-form-info {
+  text-align: center;
+  margin: 14px 0 0;
+  p {
+    color: #656565;
+    font-size: 15px;
+  }
+}
+
+.form-message {
+  .alert-success {
+    padding: 10px 20px;
+    margin-top: 20px;
+  }
+  .btn-close {
+    background: transparent;
+    font-size: 19px;
+    line-height: 22px;
+    padding: 0 0 0 1px;
+    margin: 0;
+    background-color: #85bba2;
+    border: 1px solid #79a591;
+    text-align: center;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 2px;
+    margin-right: 11px;
+    span {
+      position: relative;
+      top: -2px;
+    }
+  }
+}

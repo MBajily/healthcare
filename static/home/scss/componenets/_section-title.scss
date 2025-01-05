@@ -1,0 +1,29 @@
+/*
+-----------------------------------------------------------------------
+  Section Title CSS
+-----------------------------------------------------------------------
+*/
+
+.section-title {
+  margin-bottom: 56px;
+  @media #{$lg-device} {
+    margin-bottom: 42px;
+  }
+  .title {
+    font-size: 30px;
+    margin-bottom: 12px;
+    @media #{$lg-device} {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    @media #{$md-device} {
+      font-size: 25px;
+      margin-bottom: 6px
+    }
+  }
+  .desc {
+    p {
+      padding-bottom: 0;
+    }
+  }
+}

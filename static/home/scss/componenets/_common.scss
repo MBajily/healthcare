@@ -1,0 +1,229 @@
+/*
+-----------------------------------------------------------------------
+  Common CSS
+-----------------------------------------------------------------------
+*/
+
+/*-------- Background Style Css --------*/
+.bg-img {
+  background: no-repeat center center;
+  background-size: cover;
+}
+
+/*-------- Container Style Css --------*/
+.wrapper {
+  overflow-x: hidden;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  @media #{$xl-down-device} {
+    max-width: 1200px;
+  }
+}
+
+.row>* {
+  margin-top: 0;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  & > [class*=col-] {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/*-------- Gutter Style Css --------*/
+.no-gutter {
+  margin-right: 0;
+  margin-left: 0;
+  .col,
+  [class*=col-] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.row-gutter-10 {
+  margin-right: -5px;
+  margin-left: -5px;
+  .col,
+  [class*=col-] {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.row-gutter-20 {
+  margin-right: -10px;
+  margin-left: -10px;
+  .col,
+  [class*=col-] {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.row-gutter-40 {
+  margin-right: -20px;
+  margin-left: -20px;
+  .col,
+  [class*=col-] {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.row-gutter-70 {
+  margin-right: -35px;
+  margin-left: -35px;
+    @media #{$lg-device} {
+    margin-right: -15px;
+    margin-left: -15px;
+    }
+  .col,
+  [class*=col-] {
+    padding-left: 35px;
+    padding-right: 35px;
+    @media #{$lg-device} {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+/*-------- Spacing Style Css --------*/
+.container,
+.container-fluid {
+  padding-bottom: 90px;
+  padding-top: 113px;
+  @media #{$lg-device} {
+    padding-bottom: 50px;
+    padding-top: 80px;
+  }
+}
+
+/*-------- Button Style Css --------*/
+.btn-theme {
+  background-color: $theme-color;
+  border: 1px solid $theme-color;
+  border-radius: 5px;
+  color: $white;
+  display: inline-block;
+  font-size: 15px;
+  padding: 8px 35px 8px;
+  text-align: center;
+  &.btn-sm {
+    height: 38px;
+    padding: 4px 5px 6px;
+    width: 110px;
+    @media #{$lg-device} {
+      height: 34px;
+      padding: 4px 4px 4px;
+      width: 90px;
+      font-size: 13px;
+    }
+  }
+  &.btn-white {
+    background-color: $white;
+    border: 1px solid rgba($theme-color, .18);
+    color: $theme-color;
+    &:hover {
+      background-color: $theme-color;
+      border-color: $theme-color;
+      color: $white;
+    }
+  }
+  &:hover {
+    background-color: $white;
+    border: 1px solid $theme-color;
+    color: $theme-color;
+  }
+}
+
+/*-------- Z Index Style Css --------*/
+.z-index--1 {
+  z-index: -1;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+/*-------- Fancybox Images Style Css --------*/
+.fancybox-slide {
+  cursor: url('../img/icons/cancel-white.png'), auto;
+}
+
+/*-------- Custom Color Style Css --------*/
+.bg-color-gray {
+  background-color: $gray-lighter;
+}
+
+/*-------- Margin & Padding Custom Style Css --------*/
+.m--0 {margin: 0 !important;}
+.mb--0 {margin-bottom: 0 !important;}
+.ml--0 {margin-left: 0 !important;}
+.mr--0 {margin-right: 0 !important;}
+.mt--0 {margin-top: 0 !important;}
+.p--0 {padding: 0 !important;}
+.pb--0 {padding-bottom: 0 !important;}
+.pl--0 {padding-left: 0 !important;}
+.pr--0 {padding-right: 0 !important;}
+.pt--0 {padding-top: 0 !important;}
+
+/*-------- Scroll To Top Style Css --------*/
+.scroll-to-top {
+  box-shadow: 0 0 8px 1px rgb(0 0 0 / 20%);
+  bottom: -60px;
+  background-color: $theme-color;
+  color: $white;
+  position: fixed;
+  right: 30px;
+  display: block;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  @include transition (all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1));
+  z-index: 999;
+  @media #{$sm-device} {
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+  }
+
+  &:hover {
+    background-color: $theme-color2;
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: .8;
+    bottom: 20px;
+    @media #{$sm-device} {
+      bottom: 10px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

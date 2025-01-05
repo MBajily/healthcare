@@ -1,0 +1,62 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}  
+<main class="main-content">
+  <!--== Start Page Header Area Wrapper ==-->
+    <div class="page-header-area sec-overlay sec-overlay-black" data-bg-img="assets/img/photos/bg2.jpg">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-header-content">
+              <h2 class="title">Hospital Login Page</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Page Header Area Wrapper ==-->
+    <!--== Start Login Area Wrapper ==-->
+    <section class="account-login-area">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-7 col-xl-6">
+            <div class="login-register-form-wrap register-form-wrap">
+              <div class="login-register-form">
+                <div class="form-title">
+                  <h4 class="title">Hospital Login</h4>
+                </div>
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <a href="{% url 'patient_login' %}"><button class="nav-link" id="candidate-tab" data-bs-toggle="pill" data-bs-target="#candidate" type="button" role="tab" aria-controls="candidate" aria-selected="true"><i class="menu-icon mdi mdi-account"></i> Patient</button></a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="employer-tab" data-bs-toggle="pill" data-bs-target="#employer" type="button" role="tab" aria-controls="employer" aria-selected="false"><i class="menu-icon mdi mdi-hospital-building"></i> Hospital</button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="candidate" role="tabpanel" aria-labelledby="candidate-tab">
+                    <form method="POST">
+                      <div class="row">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <div class="col-12">
+                          <div class="form-group">
+                            <button class="btn-theme">Login</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Login Area Wrapper ==-->
+  </main>
+{% endblock %}

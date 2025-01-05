@@ -1,0 +1,92 @@
+/*
+-----------------------------------------------------------------------
+    Funfact CSS
+-----------------------------------------------------------------------
+*/
+
+.funfact-area {
+  .container {
+    padding-top: 75px;
+    padding-bottom: 48px;
+    @media #{$lg-device} {
+      padding-top: 64px;
+      padding-bottom: 37px;
+    }
+  }
+}
+
+.funfact-item {
+  margin-bottom: 30px;
+  position: relative;
+  text-align: center;
+  &:before {
+    content: url('../img/icons/fun1.png');
+    height: 10px;
+    position: absolute;
+    width: 34px;
+    right: -107px;
+    top: 22px;
+    @media #{$lg-device} {
+      right: -84px;
+    }
+    @media #{$md-device} {
+      right: -53px;
+      top: 17px;
+    }
+    @media #{$sm-device} {
+      display: none;
+    }
+  }
+  .counter-number {
+    font-size: 34.93px;
+    margin-bottom: 8px;
+    min-width: 90px;
+    @include transition(all .3s ease-out);
+    @media #{$lg-device} {
+      font-size: 28px;
+      margin-bottom: 4px;
+      min-width: 80px;
+    }
+  }
+
+  .counter-title {
+    color: $theme-color;
+    font-size: 15.97px;
+    font-weight: $font-weight-medium;
+    @include transition(all .3s ease-out);
+    @media #{$lg-device} {
+      font-size: 14px;
+    }
+  }
+
+  &:hover {
+    .counter-number {
+      color: $theme-color;
+    }
+
+    .counter-title {
+      color: $theme-color2;
+    }
+  }
+}
+
+
+.funfact-content-wrap {
+  display: flex;
+  justify-content: space-between;
+  @media #{$sm-device} {
+    flex-wrap: wrap;
+  }
+  .funfact-col {
+    @media #{$sm-device} {
+      width: 50%;
+    }
+    &:last-child {
+      .funfact-item {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}

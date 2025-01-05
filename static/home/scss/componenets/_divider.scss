@@ -1,0 +1,278 @@
+/*
+-----------------------------------------------------------------------
+  Divider CSS
+-----------------------------------------------------------------------
+*/
+
+.divider {
+  &-style1 {
+    padding: 97px 0 102px;
+    @media #{$lg-device} {
+      padding: 80px 0 85px;
+    }
+    .divider-content {
+      .sub-title {
+        color: $white;
+        font-size: 23px;
+        margin-bottom: 23px;
+        @media #{$lg-device} {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+        @media #{$sm-device} {
+          font-size: 18px;
+        }
+        @media #{$xs-device} {
+          font-size: 15px;
+        }
+      }
+      .title {
+        color: $white;
+        font-size: 40px;
+        line-height: 1.5;
+        margin-bottom: 35px;
+        @media #{$lg-device} {
+          font-size: 30px;
+          line-height: 1.4;
+          margin-bottom: 22px;
+        }
+        @media #{$sm-device} {
+          font-size: 28px;
+        }
+        @media #{$xs-device} {
+          font-size: 25px;
+        }
+        @media #{$xxs-device} {
+          font-size: 22px;
+        }
+        br {
+          @media #{$xxs-device} {
+            display: none;
+          }
+        }
+      }
+      .btn-divider {
+        img {
+          border-radius: 8px;
+          @include transition(all .3s ease-out);
+          @media #{$lg-device} {
+            width: 150px;
+          }
+          @media #{$xs-device} {
+            width: 130px;
+          }
+        }
+        &-app-store {
+          margin-left: 19px;
+          @media #{$lg-device} {
+            margin-left: 12px;
+          }
+        }
+        &:hover {
+          img {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+    .divider-btn-group {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.account-login-area {
+  .container {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    @media #{$lg-device} {
+      padding-bottom: 80px;
+      padding-top: 80px;
+    }
+  }
+}
+
+.login-register-form-wrap {
+  background-color: $gray-lighter;
+  border-radius: 8px;
+  padding: 48px 70px 51px;
+  @media #{$lg-device} {
+    padding: 38px 50px 35px;
+  }
+  @media #{$sm-device} {
+    padding: 35px 40px 32px;
+  }
+  @media #{$xs-device} {
+    padding: 32px 34px 29px;
+  }
+  @media #{$xxs-device} {
+    padding: 28px 24px 25px;
+  }
+  .form-title {
+    .title {
+      border-bottom: 1px solid #d7e1dc;
+      font-size: 30px;
+      margin-bottom: 50px;
+      padding-bottom: 24px;
+      position: relative;
+      text-align: center;
+      @media #{$lg-device} {
+        font-size: 24px;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+      }
+      &:before {
+        background-color: $theme-color;
+        content: "";
+        height: 3px;
+        width: 50px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        bottom: -2px;
+      }
+    }
+  }
+}
+
+.sec-overlay {
+  position: relative;
+  z-index: 1;
+  &-theme {
+    &:before {
+      background-color: $theme-color;
+      content: "";
+      left: 0;
+      height: 100%;
+      opacity: .95;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+  &-black {
+    &:before {
+      background-color: $theme-color2;
+      content: "";
+      left: 0;
+      height: 100%;
+      opacity: .70;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}
+
+.play-video-btn {
+  .video-popup {
+    align-items: center;
+    background-color: $theme-color;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: -41px auto 0;
+    position: relative;
+    padding-left: 2px;
+    text-align: center;
+    width: 76px;
+    z-index: 1;
+    @media #{$sm-device} {
+      width: 56px;
+      height: 56px;
+      margin: -30px auto 0;
+    }
+    &:before {
+      background-color: $theme-color;
+      border-radius: 50%;
+      content: "";
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      position: absolute;
+    }
+    &:after {
+      border: 1px solid #cacaca;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      opacity: .25;
+      z-index: -2;
+      @include animation(popup-overlay 1.4s linear infinite);
+      @include transition(all .3s ease-out);
+    }
+  }
+}
+
+.bg-layer-style1 {
+  background-color: #272a33;
+  content: "";
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  height: 100%;
+  position: absolute;
+  width: 625px;
+  top: 0;
+  left: 0;
+  opacity: .05;
+  z-index: -1;
+  @media #{$lg-device} {
+    width: 357px;
+  }
+  @media #{$md-device} {
+    width: 210px;
+  }
+  @media #{$sm-device} {
+    width: 80px;
+  }
+  @media #{$xs-device} {
+    display: none;
+  }
+}
+
+.bg-layer-style2 {
+  background-color: #272a33;
+  content: "";
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  height: 100%;
+  position: absolute;
+  width: 625px;
+  top: 0;
+  right: 0;
+  opacity: .05;
+  z-index: -1;
+  @media #{$lg-device} {
+    width: 357px;
+  }
+  @media #{$md-device} {
+    width: 210px;
+  }
+  @media #{$sm-device} {
+    width: 80px;
+  }
+  @media #{$xs-device} {
+    display: none;
+  }
+}
+
+@keyframes popup-overlay {
+  0% {
+    @include scale(.8);
+    opacity: 1;
+  }
+  100% {
+    @include scale(1.6);
+    opacity: 0;
+  }
+}

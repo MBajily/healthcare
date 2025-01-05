@@ -1,0 +1,82 @@
+/*
+-----------------------------------------------------------------------
+  Page Header CSS
+-----------------------------------------------------------------------
+*/
+
+
+.page-header-area {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top right;
+  position: relative;
+  overflow: hidden;
+  padding: 203px 0 114px;
+  z-index: 1;
+  @media #{$lg-device} {
+    background-position: top left;
+    padding: 158px 0 84px;
+  }
+  @media #{$sm-device} {
+    padding: 150px 0 84px;
+  }
+}
+
+.page-header-content {
+  text-align: center;
+  .title {
+    color: #fefefe;
+    font-weight: $font-weight-semi-bold;
+    text-transform: capitalize;
+    font-size: 45px;
+    letter-spacing: 0;
+    margin: 0 0 22px 0;
+    line-height: 1;
+    @media #{$lg-device} {
+      font-size: 36px;
+      margin: 0 0 22px 0;
+    }
+    @media #{$sm-device} {
+      font-size: 32px;
+    }
+  }
+}
+
+.breadcrumb-area {
+  margin-bottom: 0;
+
+  .breadcrumb {
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: unset;
+    letter-spacing: 0;
+    line-height: 1;
+    margin-bottom: 0;
+    padding: 0;
+
+    li {
+      color: $theme-color;
+      font-size: 16px;
+      font-weight: $font-weight-normal;
+      line-height: 1;
+      letter-spacing: 0.40px;
+      text-transform: capitalize;
+      @media #{$lg-device} {
+        font-size: 14px;
+      }
+      a {
+        color: #fefefe;
+
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+
+    .breadcrumb-sep {
+      margin: 0 7px 0 9px;
+      vertical-align: 0;
+    }
+  }
+}

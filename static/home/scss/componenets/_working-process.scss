@@ -1,0 +1,159 @@
+/*
+-----------------------------------------------------------------------
+  Working Process CSS
+-----------------------------------------------------------------------
+*/
+
+
+.work-process-area {
+  .container {
+    @media #{$lg-device} {
+      padding-bottom: 44px;
+    }
+  }
+}
+
+.working-process-item {
+  max-width: 216px;
+  margin-bottom: 22px;
+  position: relative;
+  text-align: center;
+  @media #{$md-device} {
+    margin: 0 auto 34px
+  }
+
+  .icon-box {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .inner {
+      align-items: center;
+      background-color: $gray-lighter;
+      border-radius: 5px;
+      color: $theme-color;
+      display: flex;
+      height: 70px;
+      justify-content: center;
+      margin: 15px;
+      position: relative;
+      text-align: center;
+      width: 70px;
+      @include transition(all .3s ease-out);
+      @media #{$lg-device} {
+        height: 60px;
+        margin: 10px;
+        width: 60px;
+      }
+
+      &:before {
+        border: 2px dashed #e8efef;
+        border-radius: 5px;
+        content: "";
+        height: calc(100% + 30px);
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% + 30px);
+        @include transition(all .3s ease-out);
+        @media #{$lg-device} {
+          height: calc(100% + 20px);
+          width: calc(100% + 20px);
+        }
+      }
+
+      img {
+        position: absolute;
+        @include transition(all .3s ease-out);
+        @media #{$lg-device} {
+          width: 18px;
+        }
+      }
+
+      .icon-hover {
+        opacity: 0;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 34px;
+    @media #{$lg-device} {
+      margin-top: 24px;
+    }
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 25px;
+    @media #{$lg-device} {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+  }
+
+  .desc {
+    margin-bottom: 0;
+  }
+  .shape-arrow-icon {
+    position: absolute;
+    width: 33px;
+    top: 40px;
+    right: -52px;
+    @media #{$lg-device} {
+      position: absolute;
+      width: 33px;
+      top: 30px;
+      right: -6px;
+    }
+    @media #{$md-device} {
+      display: none;
+    }
+    .shape-icon,
+    .shape-icon-hover {
+      position: absolute;
+      @include transition(all .3s ease-out);
+    }
+    .shape-icon-hover {
+      opacity: 0;
+    }
+  }
+  &:hover {
+    .icon-box {
+      .inner {
+        background-color: $theme-color;
+
+        &:before {
+          border-color: $theme-color;
+        }
+
+        .icon-hover {
+          opacity: 1;
+        }
+      }
+    }
+    .shape-icon {
+      opacity: 0;
+    }
+    .shape-icon-hover {
+      opacity: 1;
+    }
+  }
+}
+
+.working-process-content-wrap {
+  display: flex;
+  justify-content: space-between;
+  @media #{$md-device} {
+    flex-wrap: wrap;
+  }
+  .working-col {
+    @media #{$md-device} {
+      width: 50%;
+    }
+    @media #{$xxs-device} {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+/*
+-----------------------------------------------------------------------
+  Pagination CSS
+-----------------------------------------------------------------------
+*/
+.pagination-area {
+  margin-bottom: 20px;
+  .page-numbers {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 0;
+    li {
+      .page-number {
+        background-color: $gray-lighter;
+        border-radius: 5px;
+        color: $theme-color2;
+        display: inline-block;
+        font-weight: $font-weight-semi-bold;
+        font-size: 16px;
+        width: 58px;
+        height: 58px;
+        line-height: 58px;
+        text-align: center;
+        @include transition(all .3s ease-in-out);
+        @media #{$lg-device} {
+          font-size: 14px;
+          width: 48px;
+          height: 48px;
+          line-height: 48px;
+        }
+        &:hover {
+          background-color: $theme-color;
+          border-color: $theme-color;
+          color: $white;
+          i {
+            color: $white;
+          }
+        }
+        &.active {
+          background-color: $theme-color;
+          border-color: $theme-color;
+          color: $white;
+        }
+        i {
+          color: $theme-color2;
+          font-size: 20px;
+          margin: 0;
+          position: relative;
+          top: 2px;
+          @include transition(all .3s ease-in-out);
+          @media #{$md-device} {
+            font-size: 17px;
+          }
+        }
+      }
+      + {
+        li {
+          margin-left: 17px;
+          @media #{$xs-device} {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

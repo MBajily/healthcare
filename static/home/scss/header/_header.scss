@@ -1,0 +1,399 @@
+/*
+-----------------------------------------------------------------------
+  Header CSS
+-----------------------------------------------------------------------
+*/
+
+.header-area {
+  border-bottom: 1px solid rgba($white, .08);
+  padding: 0;
+
+  .container {
+    padding: 0 15px;
+  }
+
+  // Sticky Header
+  &.sticky-header {
+    @include transition(all .2s ease-out);
+
+    &.sticky {
+      background-color: $theme-color;
+      box-shadow: 0px 10px 60px -30px rgba($black, .1);
+      position: fixed !important;
+      left: 0;
+      top: 0 !important;
+      width: 100%;
+      z-index: 99;
+      .header-logo-area {
+        .logo-main {
+          display: block;
+        }
+        .logo-light {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Transparent Header Style
+  &.transparent {
+    background-color: transparent;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+  }
+
+  // Header Default
+  &.header-default {
+    background-size: cover;
+    background-position: top left 5px;
+    align-items: center;
+    display: flex;
+    position: relative;
+    z-index: 2;
+  }
+
+  // Header Align
+  .header-align {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-fixed {}
+}
+
+// Header Navigation Style
+.header-navigation-area {
+  @media #{$md-device} {
+    display: none;
+  }
+  .main-menu {
+    &.nav {
+      align-items: center;
+
+      & > li {
+        padding: 0;
+        margin-right: 0;
+
+        &.active {
+          & > a {
+            color: $theme-color;
+
+            &:before {
+              color: $theme-color;
+            }
+          }
+        }
+
+        & > a {
+          color: $white;
+          font-size: 15px;
+          font-weight: $font-weight-normal;
+          height: 88px;
+          line-height: 90px;
+          letter-spacing: 0;
+          position: relative;
+          margin: 0 11px;
+          padding: 0 11px;
+          text-transform: capitalize;
+          @include transition(all .3s ease-out);
+          @media #{$lg-device} {
+            height: 78px;
+            line-height: 80px;
+            margin: 0 7px;
+            margin-left: 7px;
+            padding: 0 7px;
+            padding-left: 7px;
+          }
+
+          span {
+            position: relative;
+            &:before {
+              content: "";
+              @include transition(all .3s ease-out);
+            }
+          }
+
+          &:hover {
+            color: $theme-color;
+
+            &:after {
+              bottom: auto;
+              height: 100%;
+              top: 0;
+            }
+          }
+        }
+
+        &:first-child {
+          margin-left: 0;
+          & > a {
+            margin-left: 0;
+            padding-left: 0;
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
+          & > a {
+            margin-right: 0;
+            padding-right: 0;
+          }
+        }
+
+        &:hover {
+          span {
+            &:before {
+              background-color: $white;
+              width: 100%;
+              left: 0;
+              right: auto;
+            }
+          }
+        }
+      }
+
+      .has-submenu {
+        // Menu Item Arrows
+        // After Hover Sub Menu
+        &:hover {
+          a {
+            color: $theme-color;
+
+            &:before {
+              color: $theme-color;
+            }
+
+            &:after {
+              bottom: auto;
+              height: 100%;
+              top: 0;
+            }
+          }
+          & > .submenu-nav {}
+        }
+
+        // Sub Menu Style
+        .submenu-nav {
+          box-shadow: 0 1px 24px 0 rgba($black,.09);
+          background-color: $white;
+          border-radius: 0 0 4px 4px;
+          color: $black-555;
+          padding: 0 0;
+          position: absolute;
+          width: 210px;
+
+          &:before {
+            display: none;
+          }
+
+          & > li {
+            border-bottom: 1px solid rgba(173, 181, 189, 0.15);
+            padding: 0;
+            margin-bottom: 0;
+
+            &:last-child {
+              margin-bottom: 0;
+              border-bottom: none;
+            }
+
+            &.active {
+              a {
+                color: $theme-color !important;
+              }
+
+              &:after {
+                color: $theme-color;
+              }
+            }
+
+            a {
+              color: #1d1d1d;
+              display: block;
+              font-size: 14px;
+              padding: 11px 25px 10px;
+              position: relative;
+              @include transition(all .3s ease-out);
+
+              &:hover {
+                color: $theme-color;
+                background-color: rgba(173, 181, 189, 0.15);
+              }
+            }
+
+            &.has-submenu {
+              @media #{$xl-device} {
+                padding: 0px 28px;
+              }
+
+              // Menu Item Arrows
+              &:after {
+                color: $black-555;
+                @media #{$xl-device} {
+                  right: auto;
+                  @include transform(rotate(-180deg));
+                  top: calc(50% + -8px);
+                  left: 20px;
+                }
+              }
+
+              &.active {
+                &:after {
+                  color: $theme-color;
+                }
+              }
+
+              // Sub Sub Menu Style
+              .submenu-nav {
+                border-radius: 0 4px 4px 4px;
+                box-shadow: 0 0 3.76px 0.24px rgb(0 0 0 / 5%);
+                left: 100%;
+                right: auto;
+                top: 7px;
+                @include transition(all .4s ease-out);
+                @media #{$xl-device} {
+                  left: auto;
+                  right: 100%;
+                }
+
+                &:before {
+                  content: "";
+                  display: block;
+                  height: 30px;
+                  position: absolute;
+                }
+
+                & > li {
+                  & > a {
+                    color: $black-555 !important;
+
+                    &:hover {
+                      color: $theme-color !important;
+                    }
+                  }
+
+                  &.active {
+                    & > a {
+                      color: $theme-color !important;
+                    }
+                  }
+                }
+              }
+
+              &:hover {
+                a {
+                  color: $theme-color;
+                }
+
+                &:after {
+                  color: $theme-color !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Btn Menu
+.btn-menu {
+  color: $white;
+  background-color: $theme-color;
+  border: none;
+  border-radius: 5px;
+  display: none;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  margin-left: 8px;
+  position: relative;
+  top: 1px;
+  height: 38px;
+  width: 38px;
+  line-height: 38px;
+  @include transition(all .2s ease-out);
+  @media #{$md-device} {
+    display: inline-block;
+  }
+  @media #{$sm-device} {
+    height: 34px;
+    width: 34px;
+    font-size: 16px;
+    line-height: 34px;
+  }
+
+  &:hover {
+    background-color: darken($theme-color, 5%);
+  }
+}
+
+// Logo Style
+.header-logo-area {
+  margin-top: 1px;
+  position: relative;
+  a {
+    display: block;
+  }
+ 
+  img {
+    max-width: 255px;
+    @media #{$xl-device} {
+      max-width: 125px;
+    }
+    @media #{$lg-device} {
+      max-width: 112px;
+    }
+  }
+
+  .logo-light {
+    display: none;
+  }
+}
+
+// Header Action Style
+.header-action-area {
+  @media #{$md-device} {
+    align-items: center;
+    display: flex;
+    height: 70px;
+  }
+  .btn-registration {
+    background-color: $theme-color;
+    border-radius: 5px;
+    color: $white;
+    display: inline-block;
+    font-size: 15px;
+    height: 48px;
+    width: 160px;
+    text-align: center;
+    line-height: 47px;
+    @media #{$lg-device} {
+      font-size: 14px;
+      height: 38px;
+      width: 122px;
+      line-height: 36px;
+    }
+    @media #{$sm-device} {
+      font-size: 13px;
+      height: 34px;
+      width: 102px;
+      line-height: 32px;
+    }
+    span {
+      margin-right: 4px;
+      @media #{$sm-device} {
+        margin-right: 0;
+        position: relative;
+        top: -1px;
+      }
+    }
+    &:hover {
+      background-color: darken($theme-color, 5%);
+    }
+  }
+}

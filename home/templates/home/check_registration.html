@@ -1,0 +1,47 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}  
+  <main class="main-content">
+
+    <!--== Start Login Area Wrapper ==-->
+    <section class="account-login-area">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-7 col-xl-6">
+            <div class="login-register-form-wrap register-form-wrap">
+              <div class="login-register-form">
+                <div class="form-title">
+                  <h4 class="title">Check Patient's Nationality ID</h4>
+                </div>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade show active" id="candidate" role="tabpanel" aria-labelledby="candidate-tab">
+                    <form method="POST">
+                      <div class="row">
+                        {% csrf_token %}
+                        <div class="p-4">
+                            <label>Nationality ID<span class="text-danger">*</span></label>
+                            <input type="text" name="nationality_id" class='form-control' id='inputName' required='True'>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-group">
+                            <button class="btn-theme">Next Step</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="login-register-form-info">
+                  <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Login Area Wrapper ==-->
+  </main>
+{% endblock %}

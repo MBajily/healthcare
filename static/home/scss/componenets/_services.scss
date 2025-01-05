@@ -1,0 +1,397 @@
+/*
+-----------------------------------------------------------------------
+  Services CSS
+-----------------------------------------------------------------------
+*/
+
+.recent-job-inner-area {
+  .container {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    @media #{$lg-device} {
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+  }
+  .pagination-area {
+    margin-top: 40px;
+    @media #{$lg-device} {
+      margin-top: 10px;
+    }
+  }
+}
+
+.job-details-area {
+  .container {
+    padding-top: 120px;
+    padding-bottom: 76px;
+    @media #{$lg-device} {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+  }
+}
+
+.employers-details-area {
+  .container {
+    padding-top: 120px;
+    padding-bottom: 90px;
+    @media #{$lg-device} {
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+  }
+}
+
+.recent-job-item {
+  background-color: $white;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 42px 40px 41px;
+  @include transition(all .3s ease-out);
+  @media #{$lg-device} {
+    padding: 30px 28px 29px;
+  }
+
+  .company-info {
+    align-items: center;
+    display: flex;
+    img {
+      border-radius: 5px;
+      min-width: 75px;
+      @media #{$lg-device} {
+        min-width: auto;
+        width: 58px;
+      }
+    }
+    .content {
+      margin-left: 30px;
+      margin-top: -1px;
+      @media #{$lg-device} {
+        margin-left: 14px;
+      }
+    }
+    .name {
+      color: $theme-color2;
+      font-size: 20px;
+      margin-bottom: 9px;
+      @media #{$lg-device} {
+        font-size: 16px;
+      }
+      a {
+        color: $theme-color2;
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+    .address {
+      font-size: 15px;
+      line-height: 1;
+      @media #{$lg-device} {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .main-content {
+    margin: 24px 0 20px;
+    .title {
+      color: $theme-color2;
+      font-size: 24px;
+      margin-bottom: 12px;
+      @media #{$lg-device} {
+        font-size: 18px;
+      }
+      a {
+        color: $theme-color2;
+        &:hover {
+          color: $theme-color;
+        }
+      }
+    }
+    .work-type {
+      color: $theme-color;
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+      margin-bottom: 15px;
+      @media #{$lg-device} {
+        font-size: 14px;
+      }
+    }
+    .desc {
+      font-size: 15px;
+      line-height: 1.87;
+      max-width: 234px;
+      @media #{$lg-device} {
+        font-size: 13px;
+        max-width: none;
+      }
+    }
+  }
+
+  .recent-job-info {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    .salary {
+      align-items: flex-end;
+      display: flex;
+      h4 {
+        font-size: 22px;
+        line-height: 1;
+        margin-bottom: 0;
+        @media #{$lg-device} {
+          font-size: 19px;
+        }
+      }
+      p {
+        bottom: 3px;
+        font-size: 14px;
+        line-height: 1;
+        position: relative;
+          @media #{$lg-device} {}
+      }
+      font-size: 12px;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0px 15px 15px 0px rgba(114, 118, 116, 0.08);
+  }
+}
+
+.recent-job-style2-item {
+  background-color: $gray-lighter;
+  &:hover {
+    box-shadow: 0px 5px 15px 0px rgb(114 118 116 / 15%);
+  }
+}
+
+.recent-job-style3-item {
+  background-color: $gray-lighter;
+  padding: 36px 35px 36px;
+  &.recent-job-item {
+    .company-info {
+      .content {
+        margin-bottom: 0;
+      }
+      .name {
+        font-size: 19px;
+        margin-right: -2px;
+      }
+    }
+    &:hover {
+      box-shadow: 0px 5px 15px 0px rgb(114 118 116 / 15%);
+    }
+  }
+}
+
+.job-details-wrap {
+  background-color: $gray-lighter;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding: 45px 44px 45px 50px;
+  @media #{$md-device} {
+    padding: 30px 21px 30px 30px;
+  }
+  @media #{$sm-device} {
+    flex-wrap: wrap;
+  }
+  @media #{$xs-device} {
+    display: block;
+    text-align: center;
+  }
+}
+
+.job-details-info {
+  align-items: center;
+  display: flex;
+  @media #{$xs-device} {
+    display: block;
+  }
+  .thumb {
+    @media #{$xs-device} {
+      margin-bottom: 22px;
+    }
+    img {
+      border-radius: 5px;
+    }
+  }
+  .content {
+    margin-top: -3px;
+    margin-left: 30px;
+    @media #{$lg-device} {
+      margin-left: 20px;
+    }
+    @media #{$xs-device} {
+      margin-left: 0;
+      margin-top: 0;
+    }
+    .title {
+      font-size: 24px;
+      margin-bottom: 9px;
+      @media #{$md-device} {
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
+    }
+    .sub-title {
+      color: $theme-color;
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+      margin-bottom: 12px;
+    }
+    .info-list {
+      display: flex;
+      margin-bottom: 0;
+      @media #{$xs-device} {
+        display: block;
+      }
+
+      li {
+        color: #656565;
+        font-size: 14px;
+        line-height: 1;
+        + {
+          li {
+            margin-left: 19px;
+            @media #{$xs-device} {
+              margin-top: 14px;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.job-details-price {
+  @media #{$sm-device} {
+    margin-top: 26px;
+  }
+  @media #{$xs-device} {
+    margin-top: 18px;
+  }
+  .title {
+    font-size: 24px;
+    margin-bottom: 24px;
+    @media #{$lg-device} {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+    @media #{$md-device} {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    @media #{$xs-device} {
+      font-size: 22px;
+      margin-bottom: 14px
+    }
+    span {
+      color: #656565;
+      font-size: 14px;
+      font-weight: $font-weight-normal;
+      line-height: 1;
+      position: relative;
+      display: inline-block;
+      left: -8px ;
+    }
+  }
+  .btn-theme {
+    width: 130px;
+    height: 45px;
+    padding: 8px 5px 10px;
+    @media #{$md-device} {
+      width: 120px;
+      height: 41px;
+      padding: 5px;
+    }
+  }
+}
+
+.job-details-item {
+  margin-top: -7px;
+  .content {
+    margin-bottom: 44px;
+    margin-right: 70px;
+    @media #{$lg-device} {
+      margin-bottom: 30px;
+      margin-right: 0;
+    }
+    .title {
+      font-size: 30px;
+      margin-bottom: 22px;
+      @media #{$lg-device} {
+        font-size: 26px;
+        margin-bottom: 18px;
+      }
+    }
+    .desc {
+      margin-bottom: 19px;
+      margin-right: -4px;
+    }
+  }
+  .job-details-list {
+    li {
+      font-size: 16px;
+      display: block;
+      line-height: 1.75;
+      position: relative;
+      padding-left: 30px;
+      @media #{$lg-device} {
+        font-size: 15px;
+      }
+      i {
+        margin-right: 12px;
+        margin-right: 12px;
+        position: absolute;
+        left: -2px;
+        top: 6px;
+      }
+    }
+  }
+  .btn-apply-now {
+    background-color: $theme-color;
+    color: $white;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: $font-weight-medium;
+    text-transform: capitalize;
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    line-height: 39px;
+    position: relative;
+    margin-top: 46px;
+    @media #{$lg-device} {
+      margin-top: 16px;
+      font-size: 15px;
+      padding: 5px;
+      width: 150px;
+      height: 50px;
+      line-height: 40px;
+    }
+    i {
+      color: $white;
+      font-size: 20px;
+      position: relative;
+      top: 2px;
+      margin-left: 16px;
+      @media #{$lg-device} {
+        font-size: 17px;
+        margin-left: 0;
+      }
+    }
+    &:hover {
+      background-color: $theme-color2;
+      color: $white;
+    }
+  }
+}

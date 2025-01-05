@@ -1,0 +1,86 @@
+/*
+-----------------------------------------------------------------------
+  Brand Logo CSS
+-----------------------------------------------------------------------
+*/
+.brand-logo-content {
+  border-top: 1px solid #f2f5f5;
+  padding-top: 100px;
+  padding-bottom: 120px;
+  position: relative;
+  @media #{$lg-device} {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  &:hover {
+    .brand-swiper-btn-prev,
+    .brand-swiper-btn-next {
+      opacity: 1;
+    }
+  }
+}
+
+.brand-logo-item {
+  @media #{$xs-device} {
+    text-align: center;
+  }
+  img {
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+      opacity: 0.6;
+      @include transition(all .3s ease-out);
+  }
+  &:hover {
+    img {
+      opacity: 1;
+      -webkit-filter: inherit; /* Safari 6.0 - 9.0 */
+      filter: inherit;
+    }
+  }
+}
+
+.brand-swiper-btn-prev,
+.brand-swiper-btn-next {
+  background-color: #fff;
+  border: 1px solid #d9e7df;
+  border-radius: 5px;
+  color: #0f034a;
+  cursor: pointer;
+  font-size: 24px;
+  height: 46px;
+  width: 46px;
+  position: absolute;
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  z-index: 1;
+  @include translate(0%, -50%);
+  @include transition(all .3s ease-out);
+  @media #{$xl-device} {
+    font-size: 22px;
+    height: 40px;
+    width: 40px;
+  }
+  @media #{$lg-device} {
+    display: none;
+  }
+  &:hover {
+    background-color: $theme-color;
+    border-color: $theme-color;
+    color: $white;
+  }
+}
+.brand-swiper-btn-prev {
+  left: -60px;
+  @media #{$xl-device} {
+    left: 0;
+  }
+}
+.brand-swiper-btn-next {
+  right: -60px;
+  @media #{$xl-device} {
+    right: 0;
+  }
+}

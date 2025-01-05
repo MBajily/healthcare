@@ -1,0 +1,163 @@
+/*
+-----------------------------------------------------------------------
+  About CSS
+-----------------------------------------------------------------------
+*/
+
+.about-default-wrapper {
+  .container {
+    padding-bottom: 120px;
+    padding-top: 120px;
+    @media #{$lg-device} {
+      padding-bottom: 80px;
+      padding-top: 80px;
+    }
+
+  }
+}
+
+.about-thumb {
+  @media #{$md-device} {
+    margin-bottom: 30px;
+  }
+  img {
+    border-radius: 5px;
+    @media #{$md-device} {
+      width: 100%;
+    }
+  }
+  &.about-thumb-two {
+    margin-right: -30px;
+    @media #{$md-device} {
+      margin-bottom: 0;
+    }
+    @media #{$md-device} {
+      margin-right: 0;
+    }
+  }
+}
+
+.about-content {
+  margin-top: -1px;
+  padding-left: 70px;
+  @media #{$lg-device} {
+    padding-left: 30px;
+  }
+  @media #{$md-device} {
+    margin-top: 40px;
+    padding-left: 0;
+  }
+
+  .sub-title {
+    color: $theme-color;
+    font-weight: $font-weight-medium;
+    font-size: 18px;
+    margin-bottom: 17px;
+    @media #{$lg-device} {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    @media #{$lg-device} {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .desc {
+    margin-bottom: 33px;
+    @media #{$lg-device} {
+      margin-bottom: 22px;
+    }
+  }
+}
+
+.member-join-content {
+  background-color: $gray-lighter;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px 30px;
+  @media #{$lg-device} {
+    padding: 20px;
+  }
+  @media #{$xs-device} {
+    padding: 15px 10px;
+  }
+
+  .member-join-thumb {
+    margin-right: 10px;
+    ul {
+      display: flex;
+      margin-bottom: 0;
+
+      li {
+        display: inline-block;
+        margin-left: -14px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        a {
+          display: inline-block;
+          position: relative;
+
+          img {
+            border: 2px solid $white;
+            border-radius: 50%;
+          }
+
+          span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background-color: #e3e5e4;
+            border-radius: 50%;
+            border: 2px solid $white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: $font-weight-semi-bold;
+            padding-bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  .join-now-btn {
+    background-color: $theme-color;
+    color: $white;
+    display: inline-block;
+    font-size: 15px;
+    width: 150px;
+    height: 48px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 47px;
+    text-transform: capitalize;
+    @include transition(all .3s ease-out);
+    @media #{$lg-device} {
+      font-size: 14px;
+      width: 100px;
+      height: 38px;
+      border-radius: 5px;
+      line-height: 37px;
+    }
+    &:hover {
+      background-color: $theme-color2;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,653 @@
+/*
+-----------------------------------------------------------------------
+  Sidebar CSS
+-----------------------------------------------------------------------
+*/
+
+.blog-sidebar {
+  @media #{$lg-device} {
+    margin-top: 50px;
+  }
+  &-left {
+    margin-right: 30px;
+    @media #{$lg-device} {
+      margin-right: 0;
+    }
+  }
+  &-right {
+    margin-left: 30px;
+    @media #{$lg-device} {
+      margin-left: 0;
+    }
+  }
+  .widget-title {
+    margin-bottom: 39px;
+    @media #{$md-device} {
+      margin-bottom: 30px;
+    }
+    .title {
+      font-size: 30px;
+      @media #{$md-device} {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .widget-item {
+    margin-bottom: 63px;
+    @media #{$lg-device} {
+      margin-bottom: 28px;
+    }
+  }
+
+  .widget-search-box {
+    .form-input-item {
+      position: relative;
+      input {
+        border: 1px solid #ededed;
+        border-radius: 5px;
+        color: #656565;
+        font-size: 15px;
+        height: 60px;
+        width: 100%;
+        line-height: 60px;
+        padding: 5px 60px 5px 25px;
+        @include transition(all .3s ease-in-out);
+        @include placeholder {
+          color: #656565;
+        }
+        &:focus {
+          border: 1px solid $theme-color;
+        }
+      }
+      button {
+        background-color: $theme-color;
+        border: none;
+        border-radius: 5px;
+        color: $white;
+        font-size: 15px;
+        height: 48px;
+        line-height: 1;
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        @include transition(all .4s ease-in-out);
+        width: 48px;
+        &:hover {
+          background-color: $theme-color2;
+        }
+      }
+    }
+  }
+
+  .widget-categories {
+    background-color: $gray-lighter;
+    border-radius: 5px;
+    padding: 50px 35px;
+    @media #{$sm-device} {
+      padding: 30px;
+    }
+    ul {
+      margin-bottom: 0;
+      li {
+        margin-bottom: 18px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        a {
+          background-color: $white;
+          border-radius: 5px;
+          color: #656565;
+          display: block;
+          font-size: 15px;
+          padding: 18px 23px 16px 24px;
+          line-height: 1;
+          @media #{$xs-device} {
+            font-size: 15px;
+          }
+          span {
+            float: right;
+          }
+          &:hover {
+            background-color: $theme-color;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .widget-post {
+    background-color: $gray-lighter;
+    border-radius: 5px;
+    padding: 44px 30px 44px;
+    @media #{$sm-device} {
+      padding: 30px 20px 30px;
+    }
+    @media #{$xs-device} {
+      padding: 25px 16px 25px;
+    }
+  }
+
+  .widget-blog-post {
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    margin-bottom: 22px;
+    padding: 0 10px 22px;
+    &:last-child {
+      border: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .thumb {
+      margin-right: 24px;
+      min-width: 71px;
+      @media #{$xs-device} {
+        margin-right: 12px;
+      }
+      img {
+        border-radius: 5px;
+        width: 100%;
+      }
+    }
+    .content {
+      margin-top: -11px;
+      @media #{$md-device} {
+        margin-top: 0;
+      }
+      h4 {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        @media #{$xs-device} {
+          font-size: 15px;
+        }
+        a {
+          color: $theme-color2;
+          &:hover {
+            color: $theme-color;
+          }
+        }
+      }
+      .meta {
+        line-height: 1;
+        .post-date {
+          color: $theme-color;
+          font-size: 14px;
+          line-height: 1;
+          i {
+            font-size: 12px;
+            margin-right: 4px;
+            position: relative;
+            top: -1px;
+          }
+        }
+      }
+    }
+  }
+
+  .widget-tags {
+    background-color: $gray-lighter;
+    border-radius: 5px;
+    padding: 44px 26px 34px 35px;
+    text-align: center;
+    @media #{$lg-device} {
+      text-align: left;
+    }
+    @media #{$sm-device} {
+      padding: 30px 30px 20px;
+    }
+    @media #{$xs-device} {
+      padding: 26px 25px 21px;
+    }
+    ul {
+      margin-bottom: 0;
+      li {
+        display: inline-block;
+        margin-bottom: 10px;
+        margin-right: 6px;
+        @media #{$xs-device} {
+          margin-bottom: 5px;
+          margin-right: 0px;
+        }
+        a {
+          align-items: center;
+          background-color: $white;
+          border-radius: 5px;
+          color: #656565;
+          display: flex;
+          font-size: 15px;
+          height: 50px;
+          justify-content: center;
+          width: 111px;
+          text-align: center;
+          @include transition(all .3s ease-in-out);
+          @media #{$lg-device} {
+            height: auto;
+            width: auto;
+            padding: 6px 18px;
+            font-size: 14px;
+          }
+          &:hover {
+            background-color: $theme-color;
+            color: $white;
+          }
+        }
+        .tags-padding {
+          height: 50px;
+          width: 151px;
+          @media #{$lg-device} {
+            height: auto;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+.job-sidebar {
+  @media #{$md-device} {
+    margin-top: 20px;
+  }
+  .widget-item {
+    background-color: $gray-lighter;
+    border-radius: 5px;
+    margin-left: -30px;
+    margin-bottom: 60px;
+    padding: 44px 50px 31px;
+    @media #{$lg-device} {
+      margin-left: 0;
+      margin-bottom: 30px;
+      padding: 28px 35px 18px;
+    }
+    @media #{$xs-device} {
+      padding: 28px 30px 18px;
+    }
+    &.widget-tag {
+      padding: 44px 40px 43px 45px;
+      @media #{$lg-device} {
+        padding: 28px 35px 27px;
+      }
+      @media #{$xs-device} {
+        padding: 28px 30px 18px;
+      }
+    }
+  }
+  .widget-title {
+    .title {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      padding-bottom: 26px;
+      margin-bottom: 24px;
+      @media #{$lg-device} {
+        font-size: 26px;
+        padding-bottom: 16px;
+        margin-bottom: 18px;
+      }
+      &:before {
+        background-color: $theme-color;
+        content: "";
+        height: 3px;
+        position: absolute;
+        width: 50px;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  .summery-info {
+    .table {
+      background-color: transparent;
+      margin-bottom: 0;
+      tbody {
+        tr {
+          .table-name {
+            color: $theme-color2;
+            font-weight: $font-weight-medium;
+            min-width: 136px;
+            @media #{$lg-device} {
+              min-width: 96px;
+            }
+          }
+          .dotted {
+            min-width: 4px;
+            padding-right: 28px;
+            @media #{$lg-device} {
+              padding-right: 14px;
+            }
+          }
+          td {
+            color: #656565;
+            font-size: 15px;
+            border: none;
+            box-shadow: none;
+            padding: 0 0 15px;
+            min-width: 130px;
+            @media #{$lg-device} {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .social-icons {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 19px;
+    a {
+      background-color: transparent;
+      border: 1px solid #dfe2e7;
+      border-radius: 5px;
+      color: #05103b;
+      height: 45px;
+      font-size: 13px;
+      width: 45px;
+      text-align: center;
+      line-height: 43px;
+      + {
+        a {
+          margin-left: 14px;
+        }
+      }
+      &:hover {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white;
+      }
+    }
+  }
+  .widget-tag-list {
+    a {
+      border: 1px solid #dfe2e7;
+      background-color: transparent;
+      border-radius: 50px;
+      display: inline-block;
+      color: #616c7d;
+      font-size: 13px;
+      height: 25px;
+      padding: 0 15px;
+      line-height: 22px;
+      margin-bottom: 7px;
+      margin-left: 5px;
+      &:hover {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white;
+      }
+    }
+    br {
+      @media #{$lg-device} {
+        display: none;
+      }
+    }
+  }
+}
+
+.team-sidebar {
+  .widget-item {
+    background-color: $gray-lighter;
+    border-radius: 5px;
+    margin-left: -30px;
+    margin-bottom: 60px;
+    padding: 44px 50px 31px;
+    @media #{$lg-device} {
+      margin-bottom: 30px;
+      margin-left: 0;
+      padding: 25px 30px 11px;
+    }
+    &.widget-contact {
+      padding: 44px 50px 50px;
+      @media #{$lg-device} {
+        padding: 25px 30px 30px;
+      }
+      .widget-title {
+        .title {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+  .widget-title {
+    .title {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      padding-bottom: 26px;
+      margin-bottom: 24px;
+      @media #{$lg-device} {
+        font-size: 25px;
+        padding-bottom: 16px;
+        margin-bottom: 14px;
+      }
+      &:before {
+        background-color: $theme-color;
+        content: "";
+        height: 3px;
+        position: absolute;
+        width: 50px;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  .summery-info {
+    .table {
+      background-color: transparent;
+      margin-bottom: 0;
+      tbody {
+        tr {
+          .table-name {
+            color: $theme-color2;
+            font-weight: $font-weight-medium;
+            min-width: 136px;
+            @media #{$lg-device} {
+              min-width: auto;
+            }
+          }
+          .dotted {
+            min-width: 4px;
+            padding-right: 28px;
+            @media #{$lg-device} {
+              min-width: auto;
+            }
+          }
+          td {
+            color: #656565;
+            font-size: 15px;
+            border: none;
+            box-shadow: none;
+            padding: 0 0 15px;
+            min-width: 130px;
+            @media #{$lg-device} {
+              min-width: auto;
+            }
+            @media #{$xxs-device} {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .social-icons {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 19px;
+    a {
+      background-color: transparent;
+      border: 1px solid #dfe2e7;
+      border-radius: 5px;
+      color: #05103b;
+      height: 45px;
+      font-size: 13px;
+      width: 45px;
+      text-align: center;
+      line-height: 43px;
+      + {
+        a {
+          margin-left: 14px;
+        }
+      }
+      &:hover {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white;
+      }
+    }
+  }
+  #contact-form {
+    textarea {
+      &.form-control {
+        height: 150px;
+        @media #{$lg-device} {
+          height: 120px;
+        }
+      }
+    }
+  }
+}
+
+.employers-sidebar {
+  .widget-item {
+    background-color: $gray-lighter;
+    border-radius: 5px;
+    margin-left: -30px;
+    margin-bottom: 60px;
+    padding: 44px 50px 31px;
+    @media #{$lg-device} {
+      margin-left: 0;
+      padding: 29px 34px 16px;
+      margin-bottom: 30px;
+    }
+    &.widget-contact {
+      padding: 44px 50px 50px;
+      @media #{$lg-device} {
+        padding: 29px 34px 36px;
+      }
+      .widget-title {
+        .title {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+  .widget-title {
+    .title {
+      display: inline-block;
+      font-size: 30px;
+      position: relative;
+      padding-bottom: 26px;
+      margin-bottom: 24px;
+      @media #{$lg-device} {
+        font-size: 24px;
+        padding-bottom: 16px;
+        margin-bottom: 14px;
+      }
+      &:before {
+        background-color: $theme-color;
+        content: "";
+        height: 3px;
+        position: absolute;
+        width: 50px;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  .summery-info {
+    .table {
+      background-color: transparent;
+      margin-bottom: 0;
+      tbody {
+        tr {
+          .table-name {
+            color: $theme-color2;
+            font-weight: $font-weight-medium;
+            min-width: 136px;
+            @media #{$lg-device} {
+              min-width: auto;
+            }
+          }
+          .dotted {
+            min-width: 4px;
+            padding-right: 28px;
+            @media #{$lg-device} {
+              padding-right: 10px;
+              padding-left: 8px;
+              padding-bottom: 0;
+              min-width: auto;
+            }
+          }
+          td {
+            color: #656565;
+            font-size: 15px;
+            border: none;
+            box-shadow: none;
+            padding: 0 0 15px;
+            min-width: 130px;
+            position: relative;
+            @media #{$lg-device} {
+              font-size: 14px;
+              min-width: auto;
+              padding: 0 0 12px;
+            }
+          }
+        }
+        .rating {
+          position: absolute;
+          display: inline-block;
+          &:before {
+            color: #ff9600;
+            content: '\f000\f000\f000\f000\f000';
+            font-family: "IcoFont";
+            font-size: 13px;
+            position: relative;
+            top: -1px;
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+  }
+  .social-icons {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 19px;
+    a {
+      background-color: transparent;
+      border: 1px solid #dfe2e7;
+      border-radius: 5px;
+      color: #05103b;
+      height: 45px;
+      font-size: 13px;
+      width: 45px;
+      text-align: center;
+      line-height: 43px;
+      + {
+        a {
+          margin-left: 14px;
+        }
+      }
+      &:hover {
+        background-color: $theme-color;
+        border-color: $theme-color;
+        color: $white;
+      }
+    }
+  }
+  #contact-form {
+    textarea {
+      &.form-control {
+        height: 150px;
+        @media #{$lg-device} {
+          height: 120px;
+        }
+      }
+    }
+  }
+}

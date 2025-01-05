@@ -1,0 +1,47 @@
+// Table of contents
+@import "tableofcontent";
+
+// Base
+@import "common/variables";
+@import "common/mixins";
+@import "common/rfs";
+
+// Typography
+ @import "common/typography";
+
+// Common Styles
+@import "componenets/common";
+@import "componenets/navbar";
+@import "componenets/offcanvas-menu";
+@import "componenets/section-title";
+
+// Header
+@import "header/header";
+
+// Banner Styles
+@import "componenets/banner";
+
+// Components
+@import "componenets/category";
+@import "componenets/services";
+@import "componenets/working-process";
+@import "componenets/divider";
+@import "componenets/brand-logo";
+@import "componenets/about";
+@import "componenets/team";
+@import "componenets/testimonial";
+@import "componenets/funfact";
+@import "componenets/form";
+@import "componenets/page-header";
+@import "componenets/sidebar";
+@import "componenets/pagination";
+@import "componenets/page-not-found";
+
+// Blog
+@import "componenets/blog";
+
+// Contact
+@import "componenets/contact";
+
+// Footer
+@import "footer/footer";

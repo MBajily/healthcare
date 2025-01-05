@@ -1,0 +1,167 @@
+/*
+-----------------------------------------------------------------------
+	Main Navigation CSS
+-----------------------------------------------------------------------
+*/
+
+.main-menu {
+  & > li {
+    margin-right: 14px;
+    padding: 3px 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    & > a {
+      color: $black;
+      display: block;
+      font-size: 14px;
+      font-weight: $font-weight-medium;
+      line-height: 30px;
+      text-transform: uppercase;
+      padding: 7px 25px;
+      position: relative;
+    }
+
+    &:hover, &.active {
+      & > a {
+        color: $theme-color;
+        &:before {
+          color: $theme-color;
+        }
+      }
+    }
+  }
+}
+
+// Sub Menu Or Dropdown Menu
+.has-submenu {
+  padding-right: 10px;
+  position: relative;
+
+  // Menu Item Arrows
+  & > a {
+    position: relative;
+
+    &:before {
+      content: '\f063';
+      color: $theme-color2;
+      display: none;
+      font-size: 12px;
+      font-family: "FontAwesome";
+      display: none;
+      position: absolute;
+      right: -16px;
+      top: 0;
+      line-height: 51px;
+    }
+  }
+
+  // After Hover Sub Menu
+  &:hover {
+    & > .submenu-nav {
+      margin-top: 0;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: visible;
+    }
+  }
+
+  // Sub Menu Style
+  .submenu-nav {
+    background-color: $black-111;
+    border: none;
+    border-bottom: none;
+    padding: 15px 0 15px;
+    position: absolute;
+    left: -15px;
+    top: 100%;
+    opacity: 0;
+    min-width: 210px;
+    pointer-events: none;
+    margin-top: 30px;
+    @include transition(all .3s ease-out);
+    visibility: hidden;
+    z-index: 9999;
+
+    @media #{$lg-device} {
+      min-width: 210px;
+      left: 0;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      height: 56px;
+      width: 100%;
+      left: 0;
+      bottom: 100%;
+    }
+
+    & > li {
+      padding: 10px 25px;
+
+      a {
+        color: #aaa;
+        display: block;
+        font-weight: $font-weight-normal;
+        font-size: 14px;
+        letter-spacing: inherit;
+        text-transform: capitalize;
+        &:hover {
+          color: $white;
+        }
+      }
+
+      &:hover {
+        & > a {
+          color: $white;
+        }
+        &:after {
+          color: $white !important;
+        }
+      }
+
+      &.has-submenu {
+        position: relative;
+
+
+        a {
+          &:before{
+            display: none;
+          }
+        }
+
+        &:hover {
+          & > .submenu-nav {
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: visible;
+          }
+        }
+
+        // Menu Item Arrows
+        &:after {
+          content: '\f105';
+          color: $body-color;
+          font-size: 15px;
+          line-height: 1;
+          font-family: 'FontAwesome';
+          display: none;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          @include translate(0%, -57%);
+        }
+
+        // Sub Sub Menu Style
+        .submenu-nav {
+          left: 100%;
+          top: 0;
+        }
+      }
+    }
+  }
+}

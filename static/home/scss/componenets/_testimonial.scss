@@ -1,0 +1,144 @@
+/*
+-----------------------------------------------------------------------
+  Testimonial CSS
+-----------------------------------------------------------------------
+*/
+
+.testimonial-area {
+  .container {
+    padding-bottom: 117px;
+    @media #{$lg-device} {
+      padding-bottom: 83px;
+    }
+  }
+}
+
+.testimonial-item {
+  background-color: $white;
+  border-radius: 5px;
+  padding: 47px 48px 45px;
+  @include transition(all .4s ease-out);
+  @media #{$md-device} {
+    padding: 32px 33px 30px;
+  }
+
+  .testi-author {
+    align-items: center;
+    display: flex;
+
+    .testi-thumb {
+      img {
+        border-radius: 5px;
+        min-width: 75px;
+      }
+    }
+
+    .testi-info {
+      margin-top: -4px;
+      margin-left: 30px;
+      @media #{$md-device} {
+        margin-left: 14px;
+      }
+      .name {
+        font-size: 22px;
+        @include transition(all .4s ease-out);
+        @media #{$lg-device} {
+          font-size: 18px;
+        }
+      }
+
+      .designation {
+        color: $theme-color;
+        font-size: 15px;
+        display: block;
+        line-height: 1;
+        @include transition(all .4s ease-out);
+      }
+    }
+  }
+
+  .testi-content {
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+    @media #{$lg-device} {
+      margin-top: 18px;
+    }
+    .desc {
+      margin-right: -2px;
+      margin-bottom: 25px;
+      @include transition(all .4s ease-out);
+    }
+    .rating-box {
+      color: #ff9600;
+      display: flex;
+      font-size: 14px;
+      letter-spacing: 2px;
+      @include transition(all .4s ease-out);
+    }
+    .testi-quote {
+      position: absolute;
+      z-index: -1;
+      left: 75px;
+      top: 18px;
+      @media #{$lg-device} {
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &:hover {
+    background-color: $theme-color;
+    .testi-author {
+      .testi-info {
+        .name {
+          color: $white;
+        }
+
+        .designation {
+          color: $white;
+        }
+      }
+    }
+    .testi-content {
+      .desc {
+        color:$white;
+      }
+      .rating-box {
+        color: $white;
+      }
+    }
+  }
+}
+
+.testimonial-style2-item {
+  background-color: $gray-lighter;
+}
+
+.testi-slider-container {
+  .swiper-pagination {
+    bottom: 0;
+    line-height: 1;
+    position: relative;
+    margin-top: 59px;
+    .swiper-pagination-bullet {
+      background-color: #d5d5d5;
+      height: 12px;
+      opacity: 1;
+      margin: 0;
+      width: 12px;
+      &.swiper-pagination-bullet-active {
+        background-color: $theme-color;
+      }
+      + {
+        .swiper-pagination-bullet {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
