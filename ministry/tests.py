@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from api.models import User
+from .forms import RegisterForm, CivilStatusForm
 from django.contrib.auth.hashers import make_password
 
 class MinistryViewTests(TestCase):
@@ -70,3 +71,25 @@ class MinistryViewTests(TestCase):
         # Check if the hospital was created
         self.assertTrue(User.objects.filter(email='newhospital@test.com', role='HOSPITAL').exists())
         self.assertEqual(response.status_code, 200)  # Should be 200 after following redirect
+
+class MinistryFormTests(TestCase):
+    def test_register_form_valid(self):
+        """Test RegisterForm validation"""
+        form_data = {
+            'email': 'test@example.com',
+            'password1': 'testpass123',
+            'password2': 'testpass123'
+        }
+        form = RegisterForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_civil_status_form_valid(self):
+        """Test CivilStatusForm validation"""
+        form_data = {
+            'nationality_id': '1234567890',
+            'full_name': 'Test User',
+            'birth': '1990-01-01',
+            'gender': 'Male'
+        }
+        form = CivilStatusForm(data=form_data)
+        self.assertTrue(form.is_valid())
