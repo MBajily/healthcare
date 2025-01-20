@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.http import HttpResponse
-from api.models import User
+from api.models import User, Civil_Status, PatientProfile, Hospital, Patient
 from .forms import RegisterForm, CivilStatusForm
 from .decorators import allowed_users
 from django.contrib.auth.hashers import make_password
@@ -117,3 +117,75 @@ class DecoratorTests(TestCase):
         
         response = test_view(request)
         self.assertEqual(response.status_code, 200)
+
+class ModelIntegrationTests(TestCase):
+    def setUp(self):
+        # Create test hospital user
+        self.hospital_user = Hospital.objects.create(
+            email='hospital@test.com',
+            password=make_password('testpass123'),
+            role='HOSPITAL'
+        )
+
+    def test_patient_creation_integration(self):
+        """Test patient creation and profile integration"""
+        # Create civil status first
+        civil_status = Civil_Status.objects.create(
+            nationality_id='P123',
+            full_name='Test Patient',
+            birth='1990-01-01',
+            gender='Male'
+        )
+        
+        # Create patient user - profile will be created automatically
+        patient_user = Patient.objects.create(
+            email='patient@test.com',
+            password=make_password('testpass123'),
+            role='PATIENT'
+        )
+        
+        # Get the automatically created profile
+        patient_profile = PatientProfile.objects.get(user=patient_user)
+        
+        # Update the profile with civil status
+        patient_profile.civil_status = civil_status
+        patient_profile.phone = '1234567890'
+        patient_profile.save()
+
+        self.assertEqual(patient_profile.user.email, 'patient@test.com')
+        self.assertEqual(patient_profile.civil_status.full_name, 'Test Patient')
+
+    def test_new_patient_registration_flow(self):
+        """Test complete flow of new patient registration with civil status check"""
+        # Test data
+        patient_email = 'newpatient@test.com'
+        nationality_id = 'P125'
+        
+        # Check and create civil status
+        civil_status_exists = Civil_Status.objects.filter(nationality_id=nationality_id).exists()
+        self.assertFalse(civil_status_exists)
+        
+        civil_status = Civil_Status.objects.create(
+            nationality_id=nationality_id,
+            full_name='New Test Patient',
+            birth='1995-01-01',
+            gender='Male'
+        )
+        
+        # Create patient - profile will be created automatically
+        patient_user = Patient.objects.create(
+            email=patient_email,
+            password=make_password('testpass123'),
+            role='PATIENT'
+        )
+        
+        # Get and update the profile
+        patient_profile = PatientProfile.objects.get(user=patient_user)
+        patient_profile.civil_status = civil_status
+        patient_profile.phone = '9876543210'
+        patient_profile.save()
+        
+        # Verify everything
+        self.assertTrue(User.objects.filter(email=patient_email).exists())
+        self.assertTrue(Civil_Status.objects.filter(nationality_id=nationality_id).exists())
+        self.assertEqual(patient_profile.civil_status.nationality_id, nationality_id)
