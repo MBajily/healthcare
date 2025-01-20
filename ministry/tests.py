@@ -1,7 +1,9 @@
 from django.test import TestCase, Client
 from django.urls import reverse
+from django.http import HttpResponse
 from api.models import User
 from .forms import RegisterForm, CivilStatusForm
+from .decorators import allowed_users
 from django.contrib.auth.hashers import make_password
 
 class MinistryViewTests(TestCase):
@@ -93,3 +95,25 @@ class MinistryFormTests(TestCase):
         }
         form = CivilStatusForm(data=form_data)
         self.assertTrue(form.is_valid())
+
+class DecoratorTests(TestCase):
+    def setUp(self):
+        self.admin_user = User.objects.create(
+            email='admin@gmail.com',
+            password='123123',
+            role='ADMIN'
+        )
+        self.client = Client()
+
+    def test_allowed_users_decorator(self):
+        """Test allowed_users decorator"""
+        @allowed_users(allowed_roles=['ADMIN'])
+        def test_view(request):
+            return HttpResponse("Test view")
+
+        self.client.login(email='admin@gmail.com', password='123123')
+        request = self.client.get('/').wsgi_request
+        request.user = self.admin_user
+        
+        response = test_view(request)
+        self.assertEqual(response.status_code, 200)
