@@ -127,6 +127,79 @@ The system uses a relational database with the following key models:
 - Disease
 - Civil Status
 
+
+## Testing
+
+The system includes comprehensive test coverage for core functionality across different apps. Here's an overview of the test suite:
+
+### Ministry App Tests
+
+#### View Tests (`MinistryViewTests`)
+- **Dashboard Access Tests**
+  - Verifies admin access to dashboard
+  - Confirms patient access is denied
+  - Tests template rendering
+- **Hospital Management Tests**
+  - Tests hospital creation functionality
+  - Validates form submission
+  - Verifies user role assignment
+
+#### Form Tests (`MinistryFormTests`)
+- **Registration Form Tests**
+  - Validates email format
+  - Tests password confirmation
+  - Checks required fields
+- **Civil Status Form Tests**
+  - Validates nationality ID format
+  - Tests date formatting
+  - Verifies gender choices
+
+#### Decorator Tests (`DecoratorTests`)
+- Tests role-based access control
+- Verifies allowed_users decorator functionality
+- Checks permission enforcement
+
+#### Integration Tests (`ModelIntegrationTests`)
+- **Patient Creation Flow**
+  - Tests complete patient registration process
+  - Verifies automatic profile creation
+  - Validates civil status linkage
+- **Civil Status Integration**
+  - Tests civil status requirements
+  - Verifies data relationships
+  - Checks constraint enforcement
+
+### Running Tests
+
+To run the complete test suite:
+   ```bash
+   python manage.py test
+   ```
+
+To run specific app tests:
+   ```bash
+   python manage.py test ministry
+   ```
+
+### Test Coverage
+
+The test suite covers:
+- User authentication and authorization
+- Form validation and submission
+- Model relationships and constraints
+- View permissions and access control
+- Integration between different components
+
+### Writing New Tests
+
+When adding new features, please ensure:
+1. Write tests before implementing features (TDD approach)
+2. Cover both success and failure cases
+3. Test edge cases and boundary conditions
+4. Include integration tests for complex features
+5. Follow the existing test structure and naming conventions
+   
+
 ## Contributing
 
 1. Fork the repository
